@@ -1,5 +1,6 @@
-import Link from "next/link"
-import "./global.css"
+import Link from "next/link";
+import "./global.css";
+
 import { FaFacebook } from "react-icons/fa";
 import { GoHomeFill } from "react-icons/go";
 import { PiVideoFill } from "react-icons/pi";
@@ -23,21 +24,21 @@ const layout = ({children}) => {
                     <FaStore className="text-gray-500 text-3xl"/>,
                     <MdGroups className="text-gray-500 text-3xl"/>,
                     <FaGamepad className="text-gray-500 text-3xl"/>,
-        ]
-        let linkStyle = "w-28 flex justify-center p-2 hover:bg-gray-200 rounded-md"
-        let href = ""
-        let spanStyle = "hidden group-hover:block absolute top-14 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white p-2 rounded-md text-sm"
-        let tooltipText = ["Home", "Video", "Marketplace", "Groups", "Gaming"]
-        let nav = []
+        ];
+        let linkStyle = "w-28 flex justify-center p-2 hover:bg-gray-200 rounded-md";
+        let href = "";
+        let spanStyle = "hidden group-hover:block absolute top-14 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white p-2 rounded-md text-sm";
+        let tooltipText = ["Home", "Video", "Marketplace", "Groups", "Gaming"];
+        let menu = [];
         for (let i=0; i<5; i++) {
-            nav.push(
+            menu.push(
                 <div className="group relative" key={i}>
                     <Link href={href} className={linkStyle}>{icons[i]}</Link>
                     <span className={spanStyle}>{tooltipText[i]}</span>
                 </div>
             )
         }
-        return nav
+        return menu
     }
 
     const handleSideMenu = () => {
@@ -48,16 +49,16 @@ const layout = ({children}) => {
         ]
         let spanStyle = "hidden group-hover:block absolute top-14 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white p-2 rounded-md text-sm"
         let tooltipText = ["Menu", "Messenger", "Notifications", "Account"]
-        let nav = []
+        let menu = []
         for (let i=0; i<4; i++) {
-            nav.push(
+            menu.push(
                 <div className="group relative" key={i}>
                     {icons[i]}
                     <span className={spanStyle}>{tooltipText[i]}</span>
                 </div>
             )
         }
-        return nav
+        return menu
     }
 
   return (
