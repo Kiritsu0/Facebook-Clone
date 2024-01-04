@@ -16,10 +16,55 @@ const layout = ({children}) => {
     const metadata = {
         tile: "Facebook",
     }
+
+    const handleMenu = () => {
+        let icons = [<GoHomeFill className="text-gray-500 text-3xl"/>,
+                    <PiVideoFill className="text-gray-500 text-3xl"/>,
+                    <FaStore className="text-gray-500 text-3xl"/>,
+                    <MdGroups className="text-gray-500 text-3xl"/>,
+                    <FaGamepad className="text-gray-500 text-3xl"/>,
+        ]
+        let linkStyle = "w-28 flex justify-center p-2 hover:bg-gray-200 rounded-md"
+        let href = ""
+        let spanStyle = "hidden group-hover:block absolute top-14 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white p-2 rounded-md text-sm"
+        let tooltipText = ["Home", "Video", "Marketplace", "Groups", "Gaming"]
+        let nav = []
+        for (let i=0; i<5; i++) {
+            nav.push(
+                <div className="group relative" key={i}>
+                    <Link href={href} className={linkStyle}>{icons[i]}</Link>
+                    <span className={spanStyle}>{tooltipText[i]}</span>
+                </div>
+            )
+        }
+        return nav
+    }
+
+    const handleSideMenu = () => {
+        let icons = [<CgMenuGridO className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer"/>,
+                <RiMessengerFill className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer"/>,
+                <IoNotifications className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer"/>,
+                <IoPersonSharp className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer"/>,
+        ]
+        let spanStyle = "hidden group-hover:block absolute top-14 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white p-2 rounded-md text-sm"
+        let tooltipText = ["Menu", "Messenger", "Notifications", "Account"]
+        let nav = []
+        for (let i=0; i<4; i++) {
+            nav.push(
+                <div className="group relative" key={i}>
+                    {icons[i]}
+                    <span className={spanStyle}>{tooltipText[i]}</span>
+                </div>
+            )
+        }
+        return nav
+    }
+
   return (
     <html lang="en">
         <body className="bg-gray-300">
             <header className="flex justify-between bg-white items-center px-3 py-2">
+
                 <div className="flex items-center gap-2">
                     <FaFacebook className="text-blue-600 text-4xl cursor-pointer"/>
                      <div className="flex bg-gray-200 p-2 rounded-l-full rounded-r-full">
@@ -27,19 +72,15 @@ const layout = ({children}) => {
                         <input className="bg-gray-200 outline-none placeholder-gray-600" placeholder="Search Facebook"></input>
                      </div>
                 </div>
+
                 <div className="flex gap-2">
-                    <Link href="" className="w-28 flex justify-center p-2 hover:bg-gray-200 rounded-md"><GoHomeFill className="text-gray-500 text-3xl"/></Link>
-                    <Link href="" className="w-28 flex justify-center p-2 hover:bg-gray-200 rounded-md"><PiVideoFill className="text-gray-500 text-3xl"/></Link>
-                    <Link href="" className="w-28 flex justify-center p-2 hover:bg-gray-200 rounded-md"><FaStore className="text-gray-500 text-3xl"/></Link>
-                    <Link href="" className="w-28 flex justify-center p-2 hover:bg-gray-200 rounded-md"><MdGroups className="text-gray-500 text-3xl"/></Link>
-                    <Link href="" className="w-28 flex justify-center p-2 hover:bg-gray-200 rounded-md"><FaGamepad className="text-gray-500 text-3xl"/></Link>
+                    {handleMenu()}
                 </div>
+
                 <div className="flex gap-2">
-                    <CgMenuGridO className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer"/>
-                    <RiMessengerFill className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer"/>
-                    <IoNotifications className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer"/>
-                    <IoPersonSharp className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer"/>
+                    {handleSideMenu()}
                 </div>
+
             </header>
             {children}
         </body>
