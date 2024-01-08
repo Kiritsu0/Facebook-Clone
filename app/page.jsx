@@ -22,39 +22,39 @@ const page = () => {
 
   const handleNav = () => {
     const icons = [<IoPersonSharp className="text-black text-2xl rounded-full"/>,
-                <FaUserFriends className="text-2xl rounded-full text-blue-500"/>,
-                <FaClockRotateLeft />,
-                <HiBookmark />,
-                <MdGroups />,
-                <PiVideoFill />,
-                <HiMiniBuildingStorefront />,
-                <MdOutlineWysiwyg />,
-                <IoStatsChart />,
-                <PiPlantFill />,
-                <IoHeartCircle />,
-                <SiFacebookgaming />,
-                <RiMessengerFill />,
-                <RiMessengerFill />,
-                <MdPayments />,
-                <MdFlag />,
-                <FaGamepad />,
-                <MdImage />,
+                <FaUserFriends className="text-2xl text-blue-400"/>,
+                <FaClockRotateLeft className="text-2xl text-blue-500"/>,
+                <HiBookmark className="text-2xl text-purple-600"/>,
+                <MdGroups  className="text-2xl text-white bg-blue-600 rounded-full px-1"/>,
+                <PiVideoFill className="text-2xl text-blue-600"/>,
+                <HiMiniBuildingStorefront className="text-2xl text-blue-600"/>,
+                <MdOutlineWysiwyg className="text-2xl text-blue-600"/>,
+                <IoStatsChart className="text-2xl text-blue-600"/>,
+                <PiPlantFill className="text-2xl text-green-600"/>,
+                <IoHeartCircle className="text-2xl text-yellow-600"/>,
+                <SiFacebookgaming className="text-2xl text-blue-600 rounded-sm"/>,
+                <RiMessengerFill className="text-2xl text-blue-600"/>,
+                <RiMessengerFill className="text-2xl text-blue-800"/>,
+                <MdPayments className="text-2xl text-green-800"/>,
+                <MdFlag className="text-2xl text-orange-600"/>,
+                <FaGamepad className="text-2xl text-blue-600"/>,
+                <MdImage className="text-2xl text-blue-600"/>,
   ];
     let linkStyle = "flex items-center gap-2 font-medium pl-2 py-2 hover:bg-gray-200 rounded-md";
     let linkText = ["Guest", "Friends", "Memories", "Saved", "Groups", "Video", "Marketplace", "Events", "AdsManager", 
                 "Climate Science Center", "Fundraisers", "Gaming Video", "Messenger", "Messenger Kids", "Orders and payments", 
                 "Pages", "Play games", "Recent and activity"];
     let nav = [];
-    for (let i = 0; i<20; i++) {
+    for (let i = 0; i<18; i++) {
       nav.push(
-          <Link href="" className={linkStyle}>{icons[i]}{linkText[i]}</Link>
+          <Link href="" className={linkStyle} key={i}>{icons[i]}{linkText[i]}</Link>
         )
     }
     return nav
   }
   return (
     <div>
-      <nav className="w-80 max-h-96 pl-2 py-4 overflow-auto">
+      <nav className="w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar">
         {handleNav()}
       </nav>
     </div>
