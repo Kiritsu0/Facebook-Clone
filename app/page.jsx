@@ -17,6 +17,8 @@ import { MdPayments } from "react-icons/md";
 import { MdFlag } from "react-icons/md";
 import { FaGamepad } from "react-icons/fa6";
 import { MdImage } from "react-icons/md";
+import { MdExpandMore } from "react-icons/md";
+import { MdExpandLess } from "react-icons/md";
 
 const page = () => {
 
@@ -40,7 +42,7 @@ const page = () => {
                 <FaGamepad className="text-2xl text-blue-600"/>,
                 <MdImage className="text-2xl text-blue-600"/>,
   ];
-    let linkStyle = "flex items-center gap-2 font-medium pl-2 py-2 hover:bg-gray-200 rounded-md";
+    let linkStyle = "flex items-center gap-2 font-medium pl-2 py-2 hover:bg-gray-300 rounded-md";
     let linkText = ["Guest", "Friends", "Memories", "Saved", "Groups", "Video", "Marketplace", "Events", "AdsManager", 
                 "Climate Science Center", "Fundraisers", "Gaming Video", "Messenger", "Messenger Kids", "Orders and payments", 
                 "Pages", "Play games", "Recent and activity"];
@@ -56,6 +58,7 @@ const page = () => {
     <div>
       <nav className="w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar">
         {handleNav()}
+        <button className="flex gap-3 items-center font-medium pl-2 py-2 hover:bg-gray-300 rounded-md w-full"><MdExpandMore className="text-3xl bg-gray-400 p-1 rounded-full"/>See more</button>
       </nav>
     </div>
   )
