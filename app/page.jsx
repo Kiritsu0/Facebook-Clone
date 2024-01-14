@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 
 import { IoPersonSharp } from "react-icons/io5";
@@ -20,7 +22,12 @@ import { MdImage } from "react-icons/md";
 import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
 
+import React from "react"
+import {useState} from "react"
+
 const page = () => {
+  const [expand, setExpand] = useState(false);
+  const [linkNum, setLinkNum] = useState(9);
 
   const handleNav = () => {
     const icons = [<IoPersonSharp className="text-black text-2xl rounded-full"/>,
@@ -47,19 +54,43 @@ const page = () => {
                 "Climate Science Center", "Fundraisers", "Gaming Video", "Messenger", "Messenger Kids", "Orders and payments", 
                 "Pages", "Play games", "Recent and activity"];
     let nav = [];
-    for (let i = 0; i<18; i++) {
+    for (let i = 0; i < linkNum; i++) {
       nav.push(
-          <Link href="" className={linkStyle} key={i}>{icons[i]}{linkText[i]}</Link>
+          <Link href="" className={linkStyle} key={i} id={i === 17 ? "link" : ""}>{icons[i]}{linkText[i]}</Link>
         )
     }
     return nav
   }
+
+  const handleExpand = () => {
+    setExpand(!expand);
+    setLinkNum(expand ? 9 : 18)
+  }
   return (
-    <div>
-      <nav className="w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar">
-        {handleNav()}
-        <button className="flex gap-3 items-center font-medium pl-2 py-2 hover:bg-gray-300 rounded-md w-full"><MdExpandMore className="text-3xl bg-gray-400 p-1 rounded-full"/>See more</button>
-      </nav>
+    <div className="flex">
+      <div>
+        <a href="#link"><nav className={expand ? "w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar" : "w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar"}>
+          {handleNav()}
+        </nav>
+        <button onClick={() => handleExpand} className="flex gap-3 items-center font-medium pl-2 py-2 hover:bg-gray-300 rounded-md w-full">
+          {expand ? (
+            <MdExpandLess className="text-3xl bg-gray-400 p-1 rounded-full"/>
+          ) : (
+            <MdExpandMore className="text-3xl bg-gray-400 p-1 rounded-full"/>
+          )}
+          {expand ? 'See less' : 'See more'}
+        </button></a>
+      </div>
+
+      <div>
+        <div>
+          <IoPersonSharp className="text-60xl"/>
+          <div className="">
+            <span className="text-2xl">Create Story</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   )
 }

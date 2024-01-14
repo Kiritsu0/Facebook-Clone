@@ -13,7 +13,7 @@ import { IoNotifications } from "react-icons/io5";
 import { MdSearch } from "react-icons/md";
 import { IoPersonSharp } from "react-icons/io5";
 
-const layout = ({children}) => {
+const layout = ({children}, nav) => {
     const metadata = {
         tile: "Facebook",
     }
@@ -83,6 +83,7 @@ const layout = ({children}) => {
                 </div>
 
             </header>
+            {nav}
             {children}
         </body>
     </html>
