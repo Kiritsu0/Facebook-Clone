@@ -21,6 +21,7 @@ import { FaGamepad } from "react-icons/fa6";
 import { MdImage } from "react-icons/md";
 import { MdExpandMore } from "react-icons/md";
 import { MdExpandLess } from "react-icons/md";
+import { FaPlusCircle } from "react-icons/fa";
 
 import React from "react"
 import {useState} from "react"
@@ -69,10 +70,10 @@ const page = () => {
   return (
     <div className="flex">
       <div>
-        <a href="#link"><nav className={expand ? "w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar" : "w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar"}>
+        <nav className={expand ? "w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar" : "w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar"}>
           {handleNav()}
         </nav>
-        <button onClick={() => handleExpand} className="flex gap-3 items-center font-medium pl-2 py-2 hover:bg-gray-300 rounded-md w-full">
+        <a href="#link"><button onClick={handleExpand} className="flex gap-3 items-center font-medium pl-2 py-2 hover:bg-gray-300 rounded-md w-full">
           {expand ? (
             <MdExpandLess className="text-3xl bg-gray-400 p-1 rounded-full"/>
           ) : (
@@ -82,11 +83,15 @@ const page = () => {
         </button></a>
       </div>
 
-      <div>
-        <div>
-          <IoPersonSharp className="text-60xl"/>
+      <div className="ml-10 mt-10">
+        <div className="bg-white rounded-md h-60 w-32">
+          <div className="bg-gray-400 flex justify-center items-center h-3/4 rounded-t-md">
+            <IoPersonSharp className="text-7xl"/>
+          </div>
+          <button className=""><FaPlusCircle className="text-blue-500 text-3xl relative top-2/3 left-1/2"/></button>
+
           <div className="">
-            <span className="text-2xl">Create Story</span>
+            <span className="text-1xl">Create Story</span>
           </div>
         </div>
       </div>
