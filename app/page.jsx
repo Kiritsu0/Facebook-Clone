@@ -70,7 +70,7 @@ const page = () => {
   return (
     <div className="flex">
       <div>
-        <nav className={expand ? "w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar" : "w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar"}>
+        <nav className="w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar">
           {handleNav()}
         </nav>
         <a href="#link"><button onClick={handleExpand} className="flex gap-3 items-center font-medium pl-2 py-2 hover:bg-gray-300 rounded-md w-full">
@@ -84,14 +84,14 @@ const page = () => {
       </div>
 
       <div className="ml-10 mt-10">
-        <div className="bg-white rounded-md h-60 w-32">
+        <div className="bg-white rounded-md h-60 w-36">
           <div className="bg-gray-400 flex justify-center items-center h-3/4 rounded-t-md">
             <IoPersonSharp className="text-7xl"/>
           </div>
-          <button className=""><FaPlusCircle className="text-blue-500 text-3xl relative top-2/3 left-1/2"/></button>
+          <button className="bg-white rounded-full p-1 relative -top-4 left-1/3"><FaPlusCircle className="text-blue-600 text-3xl"/></button>
 
-          <div className="">
-            <span className="text-1xl">Create Story</span>
+          <div>
+            <span className="flex justify-center text-xs font-medium">Create Story</span>
           </div>
         </div>
       </div>
