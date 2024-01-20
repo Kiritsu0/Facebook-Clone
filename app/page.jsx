@@ -50,7 +50,7 @@ const page = () => {
                 <FaGamepad className="text-2xl text-blue-600"/>,
                 <MdImage className="text-2xl text-blue-600"/>,
   ];
-    let linkStyle = "flex items-center gap-2 font-medium pl-2 py-2 hover:bg-gray-300 rounded-md";
+    let linkStyle = "flex items-center gap-2 font-medium pl-2 py-2 hover:bg-gray-300 rounded-md scroll-smooth";
     let linkText = ["Guest", "Friends", "Memories", "Saved", "Groups", "Video", "Marketplace", "Events", "AdsManager", 
                 "Climate Science Center", "Fundraisers", "Gaming Video", "Messenger", "Messenger Kids", "Orders and payments", 
                 "Pages", "Play games", "Recent and activity"];
@@ -84,16 +84,18 @@ const page = () => {
       </div>
 
       <div className="ml-10 mt-10">
-        <div className="bg-white rounded-md h-60 w-36">
-          <div className="bg-gray-400 flex justify-center items-center h-3/4 rounded-t-md">
-            <IoPersonSharp className="text-7xl"/>
-          </div>
-          <button className="bg-white rounded-full p-1 relative -top-4 left-1/3"><FaPlusCircle className="text-blue-600 text-3xl"/></button>
+        <Link href="/stories">
+          <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95">
+            <div className="bg-gray-400 flex justify-center items-center h-3/4 rounded-t-lg">
+              <IoPersonSharp className="text-7xl"/>
+            </div>
+            <button className="bg-white rounded-full p-1 relative -top-4 left-1/3"><FaPlusCircle className="text-blue-600 text-3xl"/></button>
 
-          <div>
-            <span className="flex justify-center text-xs font-medium">Create Story</span>
+            <div>
+              <span className="flex justify-center text-xs font-medium">Create Story</span>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
 
     </div>
