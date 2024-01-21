@@ -85,7 +85,7 @@ const page = () => {
 
       <div className="ml-10 mt-10">
         <Link href="/stories">
-          <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95">
+          <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
             <div className="bg-gray-400 flex justify-center items-center h-3/4 rounded-t-lg">
               <IoPersonSharp className="text-7xl"/>
             </div>

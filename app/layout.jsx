@@ -13,7 +13,7 @@ import { IoNotifications } from "react-icons/io5";
 import { MdSearch } from "react-icons/md";
 import { IoPersonSharp } from "react-icons/io5";
 
-const layout = ({children}, nav) => {
+const layout = ({children}) => {
     const metadata = {
         tile: "Facebook",
     }
@@ -64,26 +64,27 @@ const layout = ({children}, nav) => {
   return (
     <html lang="en">
         <body className="bg-gray-200">
-            <header className="flex justify-between bg-white items-center px-3 py-2">
+            {children.type.name === "Story" ? "" :
+                <header className="flex justify-between bg-white items-center px-3 py-2">
 
-                <div className="flex items-center gap-2">
-                    <FaFacebook className="text-blue-600 text-4xl cursor-pointer"/>
-                     <div className="flex bg-gray-200 p-2 rounded-l-full rounded-r-full">
-                        <MdSearch className="text-gray-500 text-2xl"/>
-                        <input className="bg-gray-200 outline-none placeholder-gray-600" placeholder="Search Facebook"></input>
-                     </div>
-                </div>
+                    <div className="flex items-center gap-2">
+                        <FaFacebook className="text-blue-600 text-4xl cursor-pointer"/>
+                        <div className="flex bg-gray-200 p-2 rounded-l-full rounded-r-full">
+                            <MdSearch className="text-gray-500 text-2xl"/>
+                            <input className="bg-gray-200 outline-none placeholder-gray-600" placeholder="Search Facebook"></input>
+                        </div>
+                    </div>
 
-                <div className="flex gap-2">
-                    {handleMenu()}
-                </div>
+                    <div className="flex gap-2">
+                        {handleMenu()}
+                    </div>
 
-                <div className="flex gap-2">
-                    {handleSideMenu()}
-                </div>
+                    <div className="flex gap-2">
+                        {handleSideMenu()}
+                    </div>
 
-            </header>
-            {nav}
+                </header>
+            }
             {children}
         </body>
     </html>
