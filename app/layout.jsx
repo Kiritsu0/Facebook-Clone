@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import "./global.css";
 
@@ -13,10 +15,13 @@ import { IoNotifications } from "react-icons/io5";
 import { MdSearch } from "react-icons/md";
 import { IoPersonSharp } from "react-icons/io5";
 
+import { useRouter} from "next/navigation"
 const layout = ({children}) => {
     const metadata = {
         tile: "Facebook",
     }
+    const router = useRouter();
+    const component_path = router.pathname === "/stories"
 
     const handleMenu = () => {
         let icons = [<GoHomeFill className="text-gray-500 text-3xl"/>,
@@ -64,6 +69,7 @@ const layout = ({children}) => {
   return (
     <html lang="en">
         <body className="bg-gray-200">
+            {component_path ? "" : 
             <header className="flex justify-between bg-white items-center px-3 py-2">
                 <div className="flex items-center gap-2">
                     <FaFacebook className="text-blue-600 text-4xl cursor-pointer"/>
@@ -81,6 +87,7 @@ const layout = ({children}) => {
                     {handleSideMenu()}
                 </div>
             </header>
+            }
             {children}
         </body>
     </html>

@@ -4,12 +4,13 @@ import { IoPersonSharp } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
 import { CgMenuGridO } from "react-icons/cg";
 import { IoNotifications } from "react-icons/io5";
+import { MdAddPhotoAlternate } from "react-icons/md";
+import { IoText } from "react-icons/io5";
 
 
 const Story = () => {
     return (
         <div className="flex justify-between">
-            
             <div className="w-80 bg-white h-screen">
                 <span className="flex gap-2 shadow-md py-2 pl-3 w-full">
                     <div className="group relative">
@@ -35,24 +36,39 @@ const Story = () => {
                 <hr></hr>
             </div>
 
-            <div className="flex">
-                <div className="group relative">
-                        <CgMenuGridO className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer"/>
+            <div className="flex h-9 gap-2 order-3">
+                <div className="group relative cursor-pointer">
+                        <CgMenuGridO className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2"/>
                         <span className="hidden group-hover:block absolute top-14 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white p-2 rounded-md text-sm">
                             Menu
                         </span>
                 </div>
-                <div className="group relative">
+                <div className="group relative cursor-pointer">
                         <IoNotifications className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer"/>
                         <span className="hidden group-hover:block absolute top-14 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white p-2 rounded-md text-sm">
                             Notifications
                         </span>
                 </div>
-                <div className="group relative">
-                        <IoPersonSharp className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer"/>
+                <div className="group relative cursor-pointer">
+                        <IoPersonSharp className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2"/>
                         <span className="hidden group-hover:block absolute top-14 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white p-2 rounded-md text-sm">
                             Account
                         </span>
+                </div>
+            </div>
+
+            <div className="flex justify-center items-center gap-5 ml-20">
+                <div className="flex justify-center items-center h-80 w-52 bg-red-600 rounded-lg">
+                    <div className="flex-col">
+                        <MdAddPhotoAlternate className="rounded-full bg-white text-4xl p-1"/>
+                        <p>Create a photo story</p>
+                    </div>
+                </div>
+                <div className="flex justify-center items-center h-80 w-52 bg-red-600 rounded-lg">
+                    <div className="align-center">
+                        <IoText className="rounded-full bg-white text-4xl p-1"/>
+                        <p>Create a text story</p>
+                    </div>
                 </div>
             </div>
         </div>
