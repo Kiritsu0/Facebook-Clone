@@ -2,26 +2,15 @@
 
 import Link from "next/link";
 
-import { IoPersonSharp } from "react-icons/io5";
-import { FaUserFriends } from "react-icons/fa";
-import { FaClockRotateLeft } from "react-icons/fa6";
+import { IoPersonSharp, IoStatsChart, IoHeartCircle } from "react-icons/io5";
+import { FaUserFriends, FaPlusCircle } from "react-icons/fa";
+import { FaClockRotateLeft, FaGamepad } from "react-icons/fa6";
 import { HiBookmark } from "react-icons/hi";
-import { MdGroups } from "react-icons/md";
-import { PiVideoFill } from "react-icons/pi";
+import { MdGroups, MdOutlineWysiwyg, MdPayments, MdFlag, MdImage, MdExpandMore, MdExpandLess } from "react-icons/md";
+import { PiVideoFill, PiPlantFill } from "react-icons/pi";
 import { HiMiniBuildingStorefront } from "react-icons/hi2";
-import { MdOutlineWysiwyg } from "react-icons/md";
-import { IoStatsChart } from "react-icons/io5";
-import { PiPlantFill } from "react-icons/pi";
-import { IoHeartCircle } from "react-icons/io5";
 import { SiFacebookgaming } from "react-icons/si";
 import { RiMessengerFill } from "react-icons/ri";
-import { MdPayments } from "react-icons/md";
-import { MdFlag } from "react-icons/md";
-import { FaGamepad } from "react-icons/fa6";
-import { MdImage } from "react-icons/md";
-import { MdExpandMore } from "react-icons/md";
-import { MdExpandLess } from "react-icons/md";
-import { FaPlusCircle } from "react-icons/fa";
 
 import React from "react"
 import {useState} from "react"
@@ -57,7 +46,7 @@ const page = () => {
     let nav = [];
     for (let i = 0; i < linkNum; i++) {
       nav.push(
-          <Link href="" className={linkStyle} key={i} id={i === 17 ? "link" : ""}>{icons[i]}{linkText[i]}</Link>
+          <Link href="" className={linkStyle} key={i} id={i === 17 ? "link" : ""} loading="lazy">{icons[i]}{linkText[i]}</Link>
         )
     }
     return nav

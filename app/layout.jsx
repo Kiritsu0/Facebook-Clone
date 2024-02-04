@@ -6,14 +6,12 @@ import "./global.css";
 import { FaFacebook } from "react-icons/fa";
 import { GoHomeFill } from "react-icons/go";
 import { PiVideoFill } from "react-icons/pi";
-import { FaStore } from "react-icons/fa6";
-import { MdGroups } from "react-icons/md";
-import { FaGamepad } from "react-icons/fa6";
+import { FaStore, FaGamepad } from "react-icons/fa6";
+import { MdGroups, MdSearch } from "react-icons/md";
 import { CgMenuGridO } from "react-icons/cg";
 import { RiMessengerFill } from "react-icons/ri";
-import { IoNotifications } from "react-icons/io5";
-import { MdSearch } from "react-icons/md";
-import { IoPersonSharp } from "react-icons/io5";
+import { IoNotifications, IoPersonSharp } from "react-icons/io5";
+
 
 import { usePathname } from "next/navigation"
 const layout = ({children}) => {

@@ -1,11 +1,9 @@
 import { FaFacebook } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
-import { IoPersonSharp } from "react-icons/io5";
+import { IoPersonSharp, IoTextOutline, IoNotifications } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
 import { CgMenuGridO } from "react-icons/cg";
-import { IoNotifications } from "react-icons/io5";
 import { MdAddPhotoAlternate } from "react-icons/md";
-import { IoTextOutline } from "react-icons/io5";
 
 
 const Story = () => {
