@@ -89,7 +89,7 @@ const layout = ({children}) => {
             {children}
         </body>
     </html>
-  )
+    )
 }
 
 export default layout

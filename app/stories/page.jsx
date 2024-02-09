@@ -1,3 +1,5 @@
+"use client"
+
 import { FaFacebook } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import { IoPersonSharp, IoTextOutline, IoNotifications } from "react-icons/io5";
@@ -5,8 +7,14 @@ import { IoMdSettings } from "react-icons/io";
 import { CgMenuGridO } from "react-icons/cg";
 import { MdAddPhotoAlternate } from "react-icons/md";
 
-
+import {useState} from "react"
 const Story = () => {
+    const [fileStory, setFilestory] = useState(null)
+
+
+    const handleFile = (event) => {
+        setFilestory(event.target.files[0])
+    }
     return (
         <div className="flex justify-between">
             <div className="w-80 bg-white h-screen">
@@ -56,12 +64,13 @@ const Story = () => {
             </div>
 
             <div className="flex justify-center items-center gap-5 ml-20">
-                <div className="flex justify-center items-center h-80 w-52 cursor-pointer bg-gradient-to-tr from-cyan-300 to-blue-900 rounded-lg hover:brightness-95">
-                    <div className="flex-col">
-                        <MdAddPhotoAlternate className="rounded-full bg-white text-4xl p-1 mx-auto"/>
+                <label htmlFor="fileInput" className="flex justify-center items-center h-80 w-52 bg-gradient-to-tr from-cyan-300 to-blue-900 rounded-lg hover:brightness-95">
+                    <input id="fileInput" type="file" className="absolute inset-0 opacity-0 cursor-pointer" />
+                    <div className="flex-col items-center">
+                        <MdAddPhotoAlternate className="rounded-full bg-white text-4xl p-1 mx-auto" />
                         <p className="text-white">Create a photo story</p>
                     </div>
-                </div>
+                </label>
                 <div className="flex justify-center items-center h-80 w-52 cursor-pointer bg-gradient-to-t from-red-500 to-purple-600 rounded-lg hover:brightness-95">
                     <div className="flex-col">
                         <IoTextOutline className="rounded-full bg-white text-4xl p-1 mx-auto"/>
