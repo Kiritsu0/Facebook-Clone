@@ -1,4 +1,4 @@
-import Clientstory from "C:/Programming/Git-Repositories/Facebook/facebook-app/app/components/clientside_story";
+import Clientstory from "../components/clientside_story";
 
 // Icons
 import { FaFacebook } from "react-icons/fa";

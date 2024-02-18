@@ -49,7 +49,7 @@ const Clientstory = () => {
           </div>
         </div>
         ) : (
-          <div className="bg-white shadow-md p-5 w-3/4">
+          <div className="bg-white shadow-md p-5 w-3/4 my-auto">
             <div className="bg-black mb-5">
               <div>
                 {fileStory}

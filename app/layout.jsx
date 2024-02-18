@@ -2,7 +2,7 @@
 
 import "./global.css";
 import { usePathname } from "next/navigation"
-import Serverside from "C:/Programming/Git-Repositories/Facebook/facebook-app/app/components/serverside_layout"
+import Serverside from "../components/serverside_layout"
 
 // Icons
 import { FaFacebook } from "react-icons/fa";
@@ -15,7 +15,7 @@ const layout = ({children}) => {
     }
     const pathName = usePathname()
 
-  return (
+    return (
     <html lang="en">
         <body className="bg-gray-200">
             {pathName === "/stories" ? "" : 

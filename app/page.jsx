@@ -1,5 +1,5 @@
 "use client"
-import Serverhome from "C:/Programming/Git-Repositories/Facebook/facebook-app/app/components/serverside_home"
+import Serverhome from "../components/serverside_home"
 import Link from "next/link";
 
 import { useState } from "react"
