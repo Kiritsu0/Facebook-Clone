@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation"
 import Image from "next/image";
 
 // Icons
@@ -10,13 +10,30 @@ import { MdAddPhotoAlternate } from "react-icons/md";
 
 const Clientstory = () => {
   // Variables
-  const [fileStory, setFilestory] = useState([]);
+  const [fileStory, setFileStory] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [latestFileIndex, setIndex] = useState(-1)
+  const router = useRouter()
 
   // Functions
   const handleFile = (event) => {
     setSelectedFile(URL.createObjectURL(event.target.files[0]));
   };
+
+  const handleAddStory = () => {
+    setFileStory((previous) => [...previous, selectedFile])
+    setIndex((previous) => previous + 1)
+    setSelectedFile(null)
+
+    router.push({
+      pathname: "/",
+      query: { image: fileStory[latestFileIndex] },
+    });
+  }
+
+    const handleDiscardStory = () => {
+      setSelectedFile(null)
+  }
 
   return (
     <div className="flex justify-center items-center">
@@ -51,25 +68,25 @@ const Clientstory = () => {
             <div className="aspect-video h-48 w-40 border-gray-400 overflow-hidden flex items-center">
               <Image
                 src={selectedFile}
-                alt="Selected Photo"
+                alt="Selected File"
                 width={800}
                 height={450}
               />
             </div>
           </div>
           <div className="mt-10 flex gap-3 px-2">
-            <Link
-              href=""
+            <button
+              onClick={handleDiscardStory}
               className="bg-gray-300 hover:bg-gray-200 px-2 font-medium w-28 flex justify-center items-center rounded-md"
             >
               Discard
-            </Link>
-            <Link
-              href=""
+            </button>
+            <button
+              onClick={handleAddStory}
               className="text-white bg-blue-500 hover:bg-blue-400 p-2 w-36 font-medium flex justify-center items-center rounded-md"
             >
               Share to story
-            </Link>
+            </button>
           </div>
         </div>
       )}
