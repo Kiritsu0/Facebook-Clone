@@ -35,13 +35,14 @@ const Home = () => {
     try {
       const response = await fetch(imageURL)
       const blob = await response.blob()
+      const dataURL = URL.createObjectURL(blob);
       setFiles(
         (previous) => [
           ...previous,
           <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
             <div className="bg-gray-400 flex h-3/4 rounded-t-lg">
               <Image
-                src={blob}
+                src={dataURL}
                 alt="Story"
                 // width={800}
                 // height={450}
@@ -74,7 +75,7 @@ const Home = () => {
         </a>
       </div>
 
-      <div className="ml-10 mt-10">
+      <div className="ml-10 mt-10 flex">
         <Link href="/stories">
           <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
             <div className="bg-gray-400 flex justify-center items-center h-3/4 rounded-t-lg">
@@ -92,7 +93,7 @@ const Home = () => {
           </div>
         </Link>
         {fileList}
-        {/* {image && <img src={image} alt="Story" />} */}
+        {/* {<img src={image} alt="Story" />} */}
       </div>
     </div>
   );

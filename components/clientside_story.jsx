@@ -12,7 +12,6 @@ const Clientstory = () => {
   // Variables
   const [fileStory, setFileStory] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [latestFileIndex, setIndex] = useState(-1)
   const router = useRouter()
 
   // Functions
@@ -22,17 +21,14 @@ const Clientstory = () => {
 
   const handleAddStory = () => {
     setFileStory((previous) => [...previous, selectedFile])
-    setIndex((previous) => previous + 1)
     setSelectedFile(null)
 
-    router.push({
-      pathname: "/",
-      query: { image: fileStory[latestFileIndex] },
-    });
+    router.push("/", {image: fileStory[fileStory.length - 1]});
+
   }
 
-    const handleDiscardStory = () => {
-      setSelectedFile(null)
+  const handleDiscardStory = () => {
+    setSelectedFile(null)
   }
 
   return (
