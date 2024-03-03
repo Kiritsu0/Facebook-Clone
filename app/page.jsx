@@ -3,8 +3,8 @@ import Serverhome from "../components/serverside_home";
 import Link from "next/link";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation"
-import Image from "next/image"
+import { useSearchParams } from "next/navigation";
+import Image from "next/image";
 
 // Icons
 import { MdExpandMore, MdExpandLess } from "react-icons/md";
@@ -15,10 +15,10 @@ const Home = () => {
   // Variables
   const [expand, setExpand] = useState(false);
   const [linkNum, setLinkNum] = useState(9);
-  const router = useRouter()
-  const {image} = router.query || {}
-  const [fileList, setFiles] = useState([])
+  const [fileList, setFiles] = useState([]);
 
+  const searchParams = useSearchParams()
+  let image = searchParams.get("image") || null
   // Functions
   const handleExpand = () => {
     setExpand(!expand);
@@ -26,34 +26,22 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (image) {
+    if (image && image !== null) {
       handleFileUpload(image);
+      image = null
     }
   }, [image]);
 
-  const handleFileUpload = async (imageURL) => {
-    try {
-      const response = await fetch(imageURL)
-      const blob = await response.blob()
-      const dataURL = URL.createObjectURL(blob);
-      setFiles(
-        (previous) => [
-          ...previous,
-          <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
-            <div className="bg-gray-400 flex h-3/4 rounded-t-lg">
-              <Image
-                src={dataURL}
-                alt="Story"
-                // width={800}
-                // height={450}
-                fit
-              />
-            </div>
-          </div>
-        ])
-    }catch (error) {
-      console.error("Error uploading image:", error);
-    }
+  const handleFileUpload = (imageUrl) => {
+    setFiles((previous) => [
+      ...previous,
+      <div key={imageUrl} className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
+        <div className="bg-gray-400 flex h-3/4 rounded-t-lg">
+          <Image src={imageUrl} alt="Story" width={200} height={200} />
+        </div>
+      </div>
+    ]);
+
   };
 
   return (
@@ -75,7 +63,7 @@ const Home = () => {
         </a>
       </div>
 
-      <div className="ml-10 mt-10 flex">
+      <div className="ml-10 mt-10 flex gap-3">
         <Link href="/stories">
           <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
             <div className="bg-gray-400 flex justify-center items-center h-3/4 rounded-t-lg">
@@ -93,7 +81,6 @@ const Home = () => {
           </div>
         </Link>
         {fileList}
-        {/* {<img src={image} alt="Story" />} */}
       </div>
     </div>
   );

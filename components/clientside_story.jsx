@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation"
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 // Icons
@@ -12,24 +12,22 @@ const Clientstory = () => {
   // Variables
   const [fileStory, setFileStory] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
-  const router = useRouter()
+  const router = useRouter();
 
   // Functions
   const handleFile = (event) => {
-    setSelectedFile(URL.createObjectURL(event.target.files[0]));
+    setSelectedFile(event.target.files[0]);
   };
 
   const handleAddStory = () => {
-    setFileStory((previous) => [...previous, selectedFile])
-    setSelectedFile(null)
-
-    router.push("/", {image: fileStory[fileStory.length - 1]});
-
-  }
+    setFileStory((previous) => [...previous, selectedFile]);
+    setSelectedFile(null);
+    router.push(`/?image=${URL.createObjectURL(selectedFile)}`);
+  };
 
   const handleDiscardStory = () => {
-    setSelectedFile(null)
-  }
+    setSelectedFile(null);
+  };
 
   return (
     <div className="flex justify-center items-center">
@@ -63,7 +61,7 @@ const Clientstory = () => {
           <div className="bg-black flex justify-center items-center h-4/6">
             <div className="aspect-video h-48 w-40 border-gray-400 overflow-hidden flex items-center">
               <Image
-                src={selectedFile}
+                src={URL.createObjectURL(selectedFile)}
                 alt="Selected File"
                 width={800}
                 height={450}
