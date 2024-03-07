@@ -15,33 +15,16 @@ const Home = () => {
   // Variables
   const [expand, setExpand] = useState(false);
   const [linkNum, setLinkNum] = useState(9);
-  const [fileList, setFiles] = useState([]);
+  const [files, setFiles] = useState([]);
 
-  const searchParams = useSearchParams()
-  let image = searchParams.get("image") || null
+  const searchParams = useSearchParams();
+  // const [imageList, setImagelist] = useState(searchParams.get("imageList") ? JSON.parse(searchParams.get("imageList")) : []);
+  const [images, setImages] = useState(localStorage.getItem("images") ? JSON.parse(localStorage.getItem("images")) : []);
+
   // Functions
   const handleExpand = () => {
     setExpand(!expand);
     setLinkNum(expand ? 9 : 18);
-  };
-
-  useEffect(() => {
-    if (image && image !== null) {
-      handleFileUpload(image);
-      image = null
-    }
-  }, [image]);
-
-  const handleFileUpload = (imageUrl) => {
-    setFiles((previous) => [
-      ...previous,
-      <div key={imageUrl} className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
-        <div className="bg-gray-400 flex h-3/4 rounded-t-lg">
-          <Image src={imageUrl} alt="Story" width={200} height={200} />
-        </div>
-      </div>
-    ]);
-
   };
 
   return (
@@ -80,7 +63,13 @@ const Home = () => {
             </div>
           </div>
         </Link>
-        {fileList}
+        {images && images.map((imageUrl, index) => (
+          <div key={index} className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
+            <div className="bg-gray-400 flex h-3/4 rounded-t-lg">
+              <img src={imageUrl} alt="Story" width={200} height={200} className="rounded-t-medium" />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

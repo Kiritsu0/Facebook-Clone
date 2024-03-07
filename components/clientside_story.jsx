@@ -19,10 +19,23 @@ const Clientstory = () => {
     setSelectedFile(event.target.files[0]);
   };
 
+  // const handleAddStory = () => {
+  //   setFileStory((previous) => {
+  //     const newImageList = [...previous, URL.createObjectURL(selectedFile)];
+  //     const newImageListString = JSON.stringify(newImageList);
+  //     router.push(`/?imageList=${newImageListString}`);
+  //     return newImageList;
+  //   });
+  //   setSelectedFile(null);
+  // };
+
   const handleAddStory = () => {
-    setFileStory((previous) => [...previous, selectedFile]);
+    setFileStory((previous) => {
+      const newImageList = [...previous, URL.createObjectURL(selectedFile)];
+      localStorage.setItem("imageList", JSON.stringify(newImageList));
+      return newImageList;
+    });
     setSelectedFile(null);
-    router.push(`/?image=${URL.createObjectURL(selectedFile)}`);
   };
 
   const handleDiscardStory = () => {
