@@ -1,10 +1,8 @@
 "use client";
 import Serverhome from "../components/serverside_home";
+import HandleStory from "../components/handle_story";
 import Link from "next/link";
 import { useState } from "react";
-import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
-import Image from "next/image";
 
 // Icons
 import { MdExpandMore, MdExpandLess } from "react-icons/md";
@@ -15,11 +13,7 @@ const Home = () => {
   // Variables
   const [expand, setExpand] = useState(false);
   const [linkNum, setLinkNum] = useState(9);
-  const [files, setFiles] = useState([]);
-
-  const searchParams = useSearchParams();
-  // const [imageList, setImagelist] = useState(searchParams.get("imageList") ? JSON.parse(searchParams.get("imageList")) : []);
-  const [images, setImages] = useState(localStorage.getItem("images") ? JSON.parse(localStorage.getItem("images")) : []);
+  // const [images, setImages] = useState(localStorage.getItem("imageList") ? JSON.parse(localStorage.getItem("imageList")) : null);
 
   // Functions
   const handleExpand = () => {
@@ -46,7 +40,7 @@ const Home = () => {
         </a>
       </div>
 
-      <div className="ml-10 mt-10 flex gap-3">
+      <div className="ml-10 mt-10 flex items-center gap-3 h-64">
         <Link href="/stories">
           <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
             <div className="bg-gray-400 flex justify-center items-center h-3/4 rounded-t-lg">
@@ -63,13 +57,11 @@ const Home = () => {
             </div>
           </div>
         </Link>
-        {images && images.map((imageUrl, index) => (
-          <div key={index} className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
-            <div className="bg-gray-400 flex h-3/4 rounded-t-lg">
-              <img src={imageUrl} alt="Story" width={200} height={200} className="rounded-t-medium" />
-            </div>
-          </div>
-        ))}
+        <HandleStory />
+      </div>
+
+      <div>
+
       </div>
     </div>
   );

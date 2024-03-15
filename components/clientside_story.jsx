@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -19,22 +19,22 @@ const Clientstory = () => {
     setSelectedFile(event.target.files[0]);
   };
 
-  // const handleAddStory = () => {
-  //   setFileStory((previous) => {
-  //     const newImageList = [...previous, URL.createObjectURL(selectedFile)];
-  //     const newImageListString = JSON.stringify(newImageList);
-  //     router.push(`/?imageList=${newImageListString}`);
-  //     return newImageList;
-  //   });
-  //   setSelectedFile(null);
-  // };
+  useEffect(() => {
+    const storedImageList = localStorage.getItem("imageList");
+    if (storedImageList) {
+      setFileStory(JSON.parse(storedImageList));
+    }
+  }, []);
 
   const handleAddStory = () => {
-    setFileStory((previous) => {
-      const newImageList = [...previous, URL.createObjectURL(selectedFile)];
-      localStorage.setItem("imageList", JSON.stringify(newImageList));
-      return newImageList;
-    });
+    if (selectedFile) {
+      setFileStory((previous) => {
+        const newImageList = [...previous, URL.createObjectURL(selectedFile)];
+        localStorage.setItem("imageList", JSON.stringify(newImageList));
+        router.push('/');
+        return newImageList;
+      });
+    }
     setSelectedFile(null);
   };
 
