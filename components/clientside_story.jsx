@@ -28,8 +28,9 @@ const Clientstory = () => {
 
   const handleAddStory = () => {
     if (selectedFile) {
+      const imageName = selectedFile.name.replace(/\.[^/.]+$/, "");
       setFileStory((previous) => {
-        const newImageList = [...previous, URL.createObjectURL(selectedFile)];
+        const newImageList = [{ url: URL.createObjectURL(selectedFile), name: imageName }, ...previous];
         localStorage.setItem("imageList", JSON.stringify(newImageList));
         router.push('/');
         return newImageList;
@@ -37,6 +38,7 @@ const Clientstory = () => {
     }
     setSelectedFile(null);
   };
+  
 
   const handleDiscardStory = () => {
     setSelectedFile(null);

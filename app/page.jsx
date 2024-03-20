@@ -13,14 +13,12 @@ const Home = () => {
   // Variables
   const [expand, setExpand] = useState(false);
   const [linkNum, setLinkNum] = useState(9);
-  // const [images, setImages] = useState(localStorage.getItem("imageList") ? JSON.parse(localStorage.getItem("imageList")) : null);
 
   // Functions
   const handleExpand = () => {
     setExpand(!expand);
     setLinkNum(expand ? 9 : 18);
   };
-
   return (
     <div className="flex">
       <div>
@@ -40,29 +38,38 @@ const Home = () => {
         </a>
       </div>
 
-      <div className="ml-10 mt-10 flex items-center gap-3 h-64">
-        <Link href="/stories">
-          <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
-            <div className="bg-gray-400 flex justify-center items-center h-3/4 rounded-t-lg">
-              <IoPersonSharp className="text-7xl" />
-            </div>
-            <button className="bg-white rounded-full p-1 relative -top-4 left-1/3">
-              <FaPlusCircle className="text-blue-600 text-3xl" />
-            </button>
+      <div className="">
+        <div className="ml-10 mt-10 flex items-center gap-3 h-64">
+          <Link href="/stories">
+            <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
+              <div className="bg-gray-400 flex justify-center items-center h-3/4 rounded-t-lg">
+                <IoPersonSharp className="text-7xl" />
+              </div>
+              <button className="bg-white rounded-full p-1 relative -top-4 left-1/3">
+                <FaPlusCircle className="text-blue-600 text-3xl" />
+              </button>
 
-            <div>
-              <span className="flex justify-center text-xs font-medium">
-                Create Story
-              </span>
+              <div>
+                <span className="flex justify-center text-xs font-medium">
+                  Create Story
+                </span>
+              </div>
             </div>
+          </Link>
+          <HandleStory />
+        </div>
+
+        <div className="bg-white rounded-lg w-96 mx-auto mt-8 p-3">
+          <div className="flex gap-3">
+            <IoPersonSharp className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer" />
+            <input type="text" className="bg-gray-200 outline-none placeholder-gray-600 rounded-full px-5 w-full" placeholder=""/>
           </div>
-        </Link>
-        <HandleStory />
+          <hr className="my-2"/>
+          <div></div>
+        </div>
       </div>
 
-      <div>
-
-      </div>
+      <div></div>
     </div>
   );
 };
