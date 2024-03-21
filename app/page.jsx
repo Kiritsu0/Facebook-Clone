@@ -5,9 +5,14 @@ import Link from "next/link";
 import { useState } from "react";
 
 // Icons
-import { MdExpandMore, MdExpandLess } from "react-icons/md";
-import { IoPersonSharp } from "react-icons/io5";
+import {
+  MdExpandMore,
+  MdExpandLess,
+  MdAddPhotoAlternate,
+} from "react-icons/md";
+import { IoPersonSharp, IoVideocam } from "react-icons/io5";
 import { FaPlusCircle } from "react-icons/fa";
+import { FaRegFaceGrin } from "react-icons/fa6";
 
 const Home = () => {
   // Variables
@@ -59,17 +64,32 @@ const Home = () => {
           <HandleStory />
         </div>
 
-        <div className="bg-white rounded-lg w-96 mx-auto mt-8 p-3">
+        <div className="bg-white rounded-lg mx-auto mt-8 p-3">
           <div className="flex gap-3">
-            <IoPersonSharp className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer" />
-            <input type="text" className="bg-gray-200 outline-none placeholder-gray-600 rounded-full px-5 w-full" placeholder=""/>
+            <IoPersonSharp className="text-black text-5xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer" />
+            <input
+              type="text"
+              className="bg-gray-200 outline-none placeholder-gray-600 rounded-full px-5 flex-1 hover:bg-gray-300"
+              placeholder="What's on your mind, User?"
+            />
           </div>
-          <hr className="my-2"/>
-          <div></div>
+          <hr className="my-2" />
+          <div className="flex gap-3">
+            <span className="p-3 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer">
+              <IoVideocam className="text-red-700 text-3xl" />
+              Live video
+            </span>
+            <span className="p-3 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer">
+              <MdAddPhotoAlternate className="text-green-300 text-3xl" />
+              Photo/video
+            </span>
+            <span className="p-3 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer">
+              <FaRegFaceGrin className="text-yellow-300 text-3xl" />
+              Feeling/activity
+            </span>
+          </div>
         </div>
       </div>
-
-      <div></div>
     </div>
   );
 };
