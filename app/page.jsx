@@ -13,6 +13,8 @@ import {
 import { IoPersonSharp, IoVideocam } from "react-icons/io5";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaRegFaceGrin } from "react-icons/fa6";
+import { PiUserSwitch } from "react-icons/pi";
+import { AiOutlineSound } from "react-icons/ai";
 
 const Home = () => {
   // Variables
@@ -43,7 +45,7 @@ const Home = () => {
         </a>
       </div>
 
-      <div className="">
+      <div className="flex flex-col items-center w-1/2 ml-10">
         <div className="ml-10 mt-10 flex items-center gap-3 h-64">
           <Link href="/stories">
             <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
@@ -64,9 +66,9 @@ const Home = () => {
           <HandleStory />
         </div>
 
-        <div className="bg-white rounded-lg mx-auto mt-8 p-3">
+        <div className="bg-white rounded-lg mt-8 p-3">
           <div className="flex gap-3">
-            <IoPersonSharp className="text-black text-5xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer" />
+            <IoPersonSharp className="text-black text-5xl rounded-full bg-gray-200 hover:bg-gray-300 p-2" />
             <input
               type="text"
               className="bg-gray-200 outline-none placeholder-gray-600 rounded-full px-5 flex-1 hover:bg-gray-300"
@@ -90,6 +92,20 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <aside className="w-64 max-h-96 pl-2 py-4 overflow-auto ml-auto">
+        <h2 className="text-gray-500 font-medium text-lg">Your Pages and profiles</h2>
+        <div className="flex flex-col mt-3">
+          <span className="text-sm text-gray-400 ml-3 hover:bg-gray-300 flex items-center gap-2 cursor-pointer rounded-lg p-2">
+          <PiUserSwitch className=""/>
+            Switch to Page
+          </span>
+          <span className="text-sm text-gray-400 ml-3 hover:bg-gray-300 flex items-center gap-2 cursor-pointer rounded-lg p-2">
+            <AiOutlineSound />
+            Create Promotion
+          </span>
+        </div>
+      </aside>
     </div>
   );
 };
