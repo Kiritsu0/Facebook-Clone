@@ -12,6 +12,7 @@ const Clientstory = () => {
   // Variables
   const [fileStory, setFileStory] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [textInput, setText] = useState(false)
   const router = useRouter();
 
   // Functions
@@ -39,14 +40,19 @@ const Clientstory = () => {
     setSelectedFile(null);
   };
   
+  const handleText = () => {
+    setText(true)
+    setSelectedFile(true)
+  }
 
   const handleDiscardStory = () => {
     setSelectedFile(null);
+    setText(false)
   };
 
   return (
     <div className="flex justify-center items-center">
-      {!selectedFile ? (
+      {!selectedFile || !textInput ? (
         <div className="flex gap-5 ml-20">
           <label
             htmlFor="fileInput"
@@ -63,7 +69,7 @@ const Clientstory = () => {
               <p className="text-white">Create a photo story</p>
             </div>
           </label>
-          <div className="flex justify-center items-center h-80 w-52 cursor-pointer bg-gradient-to-t from-red-500 to-purple-600 rounded-lg hover:brightness-95">
+          <div onClick={handleText} className="flex justify-center items-center h-80 w-52 cursor-pointer bg-gradient-to-t from-red-500 to-purple-600 rounded-lg hover:brightness-95">
             <div className="flex-col">
               <IoTextOutline className="rounded-full bg-white text-4xl p-1 mx-auto" />
               <p className="text-white">Create a text story</p>
@@ -74,6 +80,7 @@ const Clientstory = () => {
         <div className="bg-white shadow-md p-3 ml-20 w-[20rem] h-96 md:w-[35rem]">
           <h2 className="font-semibold">Preview</h2>
           <div className="bg-black flex justify-center items-center h-4/6">
+            {!textInput ? (
             <div className="aspect-video h-48 w-40 border-gray-400 overflow-hidden flex items-center">
               <Image
                 src={URL.createObjectURL(selectedFile)}
@@ -82,6 +89,17 @@ const Clientstory = () => {
                 height={450}
               />
             </div>
+            ) : (
+              <div className="">
+                <textarea
+                  value=""
+                  onChange=""
+                  placeholder="Enter your text here..."
+                  rows={4}
+                  cols={50}
+                />
+              </div>
+            )}
           </div>
           <div className="mt-10 flex gap-3 px-2">
             <button

@@ -32,7 +32,7 @@ const HandleStory = () => {
                 <div className="bg-gray-400 h-full flex rounded-lg">
                   <img
                     src={imageData.url}
-                    // onError={handleImageError}
+                    onError={handleImageError}
                     alt="Story"
                     width="200"
                     height="200"

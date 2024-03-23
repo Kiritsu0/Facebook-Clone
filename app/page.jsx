@@ -94,10 +94,12 @@ const Home = () => {
       </div>
 
       <aside className="w-64 max-h-96 pl-2 py-4 overflow-auto ml-auto">
-        <h2 className="text-gray-500 font-medium text-lg">Your Pages and profiles</h2>
+        <h2 className="text-gray-500 font-medium text-lg">
+          Your Pages and profiles
+        </h2>
         <div className="flex flex-col mt-3">
           <span className="text-sm text-gray-400 ml-3 hover:bg-gray-300 flex items-center gap-2 cursor-pointer rounded-lg p-2">
-          <PiUserSwitch className=""/>
+            <PiUserSwitch className="" />
             Switch to Page
           </span>
           <span className="text-sm text-gray-400 ml-3 hover:bg-gray-300 flex items-center gap-2 cursor-pointer rounded-lg p-2">
@@ -105,6 +107,16 @@ const Home = () => {
             Create Promotion
           </span>
         </div>
+        <hr className="border border-gray-400 my-3" />
+        <div>
+          <h2 className="text-gray-500 font-medium text-lg mt-3">
+            Friend Requests
+          </h2>
+          <span className="text-sm text-gray-400 my-8 flex justify-center">
+            No Requests
+          </span>
+        </div>
+        <hr className="border border-gray-400 my-3" />
       </aside>
     </div>
   );
