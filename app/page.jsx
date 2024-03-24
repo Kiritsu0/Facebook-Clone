@@ -20,7 +20,7 @@ const Home = () => {
   // Variables
   const [expand, setExpand] = useState(false);
   const [linkNum, setLinkNum] = useState(9);
-
+  // localStorage.clear()
   // Functions
   const handleExpand = () => {
     setExpand(!expand);

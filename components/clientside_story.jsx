@@ -12,47 +12,63 @@ const Clientstory = () => {
   // Variables
   const [fileStory, setFileStory] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [textInput, setText] = useState(false)
+  const [textState, setState] = useState(false);
+  const [text, setText] = useState("");
+  const [inputCondition, setCondition] = useState(true);
   const router = useRouter();
 
   // Functions
   const handleFile = (event) => {
     setSelectedFile(event.target.files[0]);
+    setCondition(true)
   };
 
   useEffect(() => {
-    const storedImageList = localStorage.getItem("imageList");
-    if (storedImageList) {
-      setFileStory(JSON.parse(storedImageList));
+    const storedStoryList = localStorage.getItem("storyList");
+    if (storedStoryList) {
+      setFileStory(JSON.parse(storedStoryList));
     }
   }, []);
 
-  const handleAddStory = () => {
+  const handleAddImageStory = () => {
     if (selectedFile) {
       const imageName = selectedFile.name.replace(/\.[^/.]+$/, "");
       setFileStory((previous) => {
-        const newImageList = [{ url: URL.createObjectURL(selectedFile), name: imageName }, ...previous];
-        localStorage.setItem("imageList", JSON.stringify(newImageList));
+        const newStoryList = [{ type: "image", url: URL.createObjectURL(selectedFile), name: imageName }, ...previous];
+        localStorage.setItem("storyList", JSON.stringify(newStoryList));
         router.push('/');
-        return newImageList;
+        return newStoryList;
       });
     }
     setSelectedFile(null);
   };
-  
+
+  const handleAddTextStory = () => {
+    if (text) {
+      setFileStory((previous) => {
+        const newStoryList = [{ type: "text", text }, ...previous];
+        localStorage.setItem("storyList", JSON.stringify(newStoryList));
+        router.push('/');
+        return newStoryList;
+      });
+    }
+    setText("");
+    setState(false)
+  }
+
   const handleText = () => {
-    setText(true)
     setSelectedFile(true)
+    setCondition(false)
   }
 
   const handleDiscardStory = () => {
     setSelectedFile(null);
-    setText(false)
+    setState(false)
   };
 
   return (
     <div className="flex justify-center items-center">
-      {!selectedFile || !textInput ? (
+      {!selectedFile || textState ? (
         <div className="flex gap-5 ml-20">
           <label
             htmlFor="fileInput"
@@ -80,7 +96,7 @@ const Clientstory = () => {
         <div className="bg-white shadow-md p-3 ml-20 w-[20rem] h-96 md:w-[35rem]">
           <h2 className="font-semibold">Preview</h2>
           <div className="bg-black flex justify-center items-center h-4/6">
-            {!textInput ? (
+            {inputCondition ? (
             <div className="aspect-video h-48 w-40 border-gray-400 overflow-hidden flex items-center">
               <Image
                 src={URL.createObjectURL(selectedFile)}
@@ -92,9 +108,10 @@ const Clientstory = () => {
             ) : (
               <div className="">
                 <textarea
-                  value=""
-                  onChange=""
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
                   placeholder="Enter your text here..."
+                  className="p-2 resize-none"
                   rows={4}
                   cols={50}
                 />
@@ -109,7 +126,7 @@ const Clientstory = () => {
               Discard
             </button>
             <button
-              onClick={handleAddStory}
+              onClick={inputCondition ? handleAddImageStory : handleAddTextStory}
               className="text-white bg-blue-500 hover:bg-blue-400 p-2 w-36 font-medium flex justify-center items-center rounded-md"
             >
               Share to story
