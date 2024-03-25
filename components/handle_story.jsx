@@ -28,7 +28,7 @@ const HandleStory = () => {
               return storyData.type === "image" ? (
                 <div
                   key={index}
-                  className="h-52 w-36 rounded-lg cursor-pointer shadow-lg hover:brightness-90 relative"
+                  className="h-52 w-36 rounded-lg cursor-pointer shadow-lg hover:brightness-90 relative overflow-hidden"
                 >
                   <div className="bg-gray-400 h-full flex rounded-lg">
                     <img
@@ -47,9 +47,9 @@ const HandleStory = () => {
               ) : (
                 <div
                   key={index}
-                  className="h-52 w-36 rounded-lg cursor-pointer shadow-lg hover:brightness-90 relative"
+                  className="h-52 w-36 rounded-lg cursor-pointer shadow-lg hover:brightness-90 relative overflow-hidden"
                 >
-                  <div className="bg-gray-400 h-full flex rounded-lg">
+                  <div className="bg-gray-400 h-full flex justify-center items-center text-center rounded-lg p-2" style={{backgroundColor: storyData.color, fontFamily: storyData.font}}>
                     <span>
                       {storyData.text}
                     </span>
