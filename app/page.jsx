@@ -1,6 +1,7 @@
 "use client";
 import Serverhome from "../components/serverside_home";
 import HandleStory from "../components/handle_story";
+import Media from "../components/media";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -20,12 +21,17 @@ const Home = () => {
   // Variables
   const [expand, setExpand] = useState(false);
   const [linkNum, setLinkNum] = useState(9);
-  // localStorage.clear()
+  const [showMedia, setShowMedia] = useState(false);
+
   // Functions
   const handleExpand = () => {
     setExpand(!expand);
     setLinkNum(expand ? 9 : 18);
   };
+
+  const handleShowMedia = () => {
+    setShowMedia(!showMedia)
+  }
   return (
     <div className="flex">
       <div>
@@ -81,7 +87,7 @@ const Home = () => {
               <IoVideocam className="text-red-700 text-3xl" />
               Live video
             </span>
-            <span className="p-3 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer">
+            <span onClick={handleShowMedia} className="p-3 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer">
               <MdAddPhotoAlternate className="text-green-300 text-3xl" />
               Photo/video
             </span>
@@ -118,6 +124,13 @@ const Home = () => {
         </div>
         <hr className="border border-gray-400 my-3" />
       </aside>
+
+      { showMedia && 
+        <div className="fixed inset-0 flex flex-col items-center justify-center bg-white bg-opacity-35 z-50">
+          <span onClick={handleShowMedia}>Exit</span>
+          <Media />
+        </div>
+      }
     </div>
   );
 };
