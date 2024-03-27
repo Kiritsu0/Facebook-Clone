@@ -89,13 +89,13 @@ const Clientstory = () => {
         <div className="flex gap-5 ml-20">
           <label
             htmlFor="fileInput"
-            className="flex justify-center items-center h-80 w-52 bg-gradient-to-tr from-cyan-300 to-blue-900 rounded-lg hover:brightness-95"
+            className="flex justify-center items-cente cursor-pointer h-80 w-52 bg-gradient-to-tr from-cyan-300 to-blue-900 rounded-lg hover:brightness-95"
           >
             <input
               id="fileInput"
               type="file"
               onChange={handleFile}
-              className="absolute inset-0 opacity-0 cursor-pointer"
+              className="absolute opacity-0"
             />
             <div className="flex-col items-center">
               <MdAddPhotoAlternate className="rounded-full bg-white text-4xl p-1 mx-auto" />

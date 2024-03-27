@@ -1,7 +1,7 @@
 "use client";
 import Serverhome from "../components/serverside_home";
 import HandleStory from "../components/handle_story";
-import Media from "../components/media";
+import Post from "../components/post";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -16,6 +16,7 @@ import { FaPlusCircle } from "react-icons/fa";
 import { FaRegFaceGrin } from "react-icons/fa6";
 import { PiUserSwitch } from "react-icons/pi";
 import { AiOutlineSound } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx";
 
 const Home = () => {
   // Variables
@@ -30,8 +31,8 @@ const Home = () => {
   };
 
   const handleShowMedia = () => {
-    setShowMedia(!showMedia)
-  }
+    setShowMedia(!showMedia);
+  };
   return (
     <div className="flex">
       <div>
@@ -83,15 +84,18 @@ const Home = () => {
           </div>
           <hr className="my-2" />
           <div className="flex gap-3">
-            <span className="p-3 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer">
+            <span className="px-3 py-1 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer">
               <IoVideocam className="text-red-700 text-3xl" />
               Live video
             </span>
-            <span onClick={handleShowMedia} className="p-3 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer">
+            <span
+              onClick={handleShowMedia}
+              className="px-3 py-1 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer"
+            >
               <MdAddPhotoAlternate className="text-green-300 text-3xl" />
               Photo/video
             </span>
-            <span className="p-3 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer">
+            <span className="px-3 py-1 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer">
               <FaRegFaceGrin className="text-yellow-300 text-3xl" />
               Feeling/activity
             </span>
@@ -125,12 +129,12 @@ const Home = () => {
         <hr className="border border-gray-400 my-3" />
       </aside>
 
-      { showMedia && 
+      {showMedia && (
         <div className="fixed inset-0 flex flex-col items-center justify-center bg-white bg-opacity-35 z-50">
-          <span onClick={handleShowMedia}>Exit</span>
-          <Media />
+          <span onClick={handleShowMedia}><RxCross2 className="text-2xl cursor-pointer"/></span>
+          <Post />
         </div>
-      }
+      )}
     </div>
   );
 };
