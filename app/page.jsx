@@ -3,7 +3,7 @@ import Serverhome from "../components/serverside_home";
 import HandleStory from "../components/handle_story";
 import Post from "../components/post";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Icons
 import {
@@ -23,6 +23,16 @@ const Home = () => {
   const [expand, setExpand] = useState(false);
   const [linkNum, setLinkNum] = useState(9);
   const [showMedia, setShowMedia] = useState(false);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const storedData = localStorage.getItem("postList")
+      ? JSON.parse(localStorage.getItem("postList"))
+      : null;
+    if (storedData) {
+      setData(storedData);
+    }
+  }, []);
 
   // Functions
   const handleExpand = () => {
@@ -101,6 +111,16 @@ const Home = () => {
             </span>
           </div>
         </div>
+
+        {data.length > 0 && (
+          <div>
+            {data.map((post, index) => (
+              <div key={index}>
+                <img src={post.url} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <aside className="w-64 max-h-96 pl-2 py-4 overflow-auto ml-auto">
@@ -131,7 +151,7 @@ const Home = () => {
 
       {showMedia && (
         <div className="fixed inset-0 flex flex-col items-center justify-center bg-white bg-opacity-35 z-50">
-          <span onClick={handleShowMedia}><RxCross2 className="text-2xl cursor-pointer"/></span>
+          <span onClick={handleShowMedia} className="hover:bg-gray-400 rounded-full"><RxCross2 className="text-2xl cursor-pointer"/></span>
           <Post />
         </div>
       )}
