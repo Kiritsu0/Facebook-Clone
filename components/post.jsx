@@ -35,7 +35,6 @@ const Post = () => {
       setAddedposts((previous) => {
         const newPostList = [{url: URL.createObjectURL(selectedPost), description: description}, ...previous];
         localStorage.setItem("postList", JSON.stringify(newPostList));
-        router.push("/");
         return newPostList;
       });
     }
@@ -54,6 +53,7 @@ const Post = () => {
       <textarea
         rows={2}
         type="text"
+        value={description}
         onChange={(e) => setDescription(e.target.value)}
         className="outline-none placeholder-gray-600 rounded-full px-5 w-full resize-none mb-4"
         placeholder="What's on your mind, User?"

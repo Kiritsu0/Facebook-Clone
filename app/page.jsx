@@ -25,6 +25,8 @@ const Home = () => {
   const [showMedia, setShowMedia] = useState(false);
   const [data, setData] = useState([]);
 
+  // localStorage.clear()
+
   useEffect(() => {
     const storedData = localStorage.getItem("postList")
       ? JSON.parse(localStorage.getItem("postList"))
@@ -32,7 +34,13 @@ const Home = () => {
     if (storedData) {
       setData(storedData);
     }
-  }, []);
+  }, [showMedia]);
+
+  // useEffect(() => {
+  //   if (data.length > 0) {
+  //     setShowMedia(false)
+  //   }
+  // }, [data])
 
   // Functions
   const handleExpand = () => {
@@ -113,9 +121,19 @@ const Home = () => {
         </div>
 
         {data.length > 0 && (
-          <div>
+          <div className="my-8">
             {data.map((post, index) => (
-              <div key={index}>
+              <div key={index} className="w-[35rem]  bg-white rounded-lg p-2 mb-5">
+                <div className="flex items-center justify-between mb-8">
+                  <span className="flex items-center gap-2">
+                    <IoPersonSharp className="text-black text-4xl rounded-full bg-gray-200 p-2" />
+                    User
+                  </span>
+                  <RxCross2 className="text-2xl cursor-pointer"/>
+                </div>
+                <div classname="my-5">
+                  <p>{post.description}</p>
+                </div>
                 <img src={post.url} />
               </div>
             ))}
