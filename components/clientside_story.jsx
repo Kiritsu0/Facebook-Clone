@@ -16,7 +16,7 @@ const Clientstory = () => {
   const [text, setText] = useState("");
   const [inputCondition, setCondition] = useState(true);
   const [color, setColor] = useState("");
-  const [font, setFont] = useState("")
+  const [font, setFont] = useState("");
   const router = useRouter();
 
   // Functions
@@ -89,7 +89,7 @@ const Clientstory = () => {
         <div className="flex gap-5 ml-20">
           <label
             htmlFor="fileInput"
-            className="flex justify-center items-cente cursor-pointer h-80 w-52 bg-gradient-to-tr from-cyan-300 to-blue-900 rounded-lg hover:brightness-95"
+            className="flex justify-center items-center cursor-pointer h-80 w-52 bg-gradient-to-tr from-cyan-300 to-blue-900 rounded-lg hover:brightness-95"
           >
             <input
               id="fileInput"

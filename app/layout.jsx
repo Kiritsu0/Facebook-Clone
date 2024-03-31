@@ -21,7 +21,7 @@ const layout = ({ children }) => {
         {pathName === "/stories" ? (
           ""
         ) : (
-          <header className="flex justify-between bg-white items-center px-3 py-2">
+          <header className="flex justify-between bg-white items-center px-3 py-2 fixed top-0 z-10 w-full">
             <div className="flex items-center gap-2">
               <FaFacebook className="text-blue-600 text-4xl cursor-pointer" />
               <div className="flex bg-gray-200 p-2 rounded-l-full rounded-r-full">

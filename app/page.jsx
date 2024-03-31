@@ -13,9 +13,9 @@ import {
 } from "react-icons/md";
 import { IoPersonSharp, IoVideocam } from "react-icons/io5";
 import { FaPlusCircle } from "react-icons/fa";
-import { FaRegFaceGrin } from "react-icons/fa6";
-import { PiUserSwitch } from "react-icons/pi";
-import { AiOutlineSound } from "react-icons/ai";
+import { FaRegFaceGrin, FaRegComment } from "react-icons/fa6";
+import { PiUserSwitch, PiShareFat } from "react-icons/pi";
+import { AiOutlineSound, AiOutlineLike } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
 
 const Home = () => {
@@ -53,7 +53,7 @@ const Home = () => {
   };
   return (
     <div className="flex">
-      <div>
+      <div className="fixed top-16">
         <Serverhome linkNum={linkNum} />
         <a href="#link">
           <button
@@ -70,7 +70,7 @@ const Home = () => {
         </a>
       </div>
 
-      <div className="flex flex-col items-center w-1/2 ml-10">
+      <div className="flex flex-col items-center w-1/2 mx-auto mt-14">
         <div className="ml-10 mt-10 flex items-center gap-3 h-64">
           <Link href="/stories">
             <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
@@ -123,25 +123,42 @@ const Home = () => {
         {data.length > 0 && (
           <div className="my-8">
             {data.map((post, index) => (
-              <div key={index} className="w-[35rem]  bg-white rounded-lg p-2 mb-5">
+              <div
+                key={index}
+                className="w-[31rem] bg-white rounded-lg p-2 mb-5"
+              >
                 <div className="flex items-center justify-between mb-8">
                   <span className="flex items-center gap-2">
                     <IoPersonSharp className="text-black text-4xl rounded-full bg-gray-200 p-2" />
                     User
                   </span>
-                  <RxCross2 className="text-2xl cursor-pointer"/>
+                  <RxCross2 className="text-2xl cursor-pointer" />
                 </div>
-                <div classname="my-5">
+                <div>
                   <p>{post.description}</p>
                 </div>
-                <img src={post.url} />
+                <div className="h-3/4 scroll-">
+                  <img src={post.url} className="mt-5 max-h-96 w-full" />
+                </div>
+                <hr className="my-3" />
+                <div className="flex justify-around items-center text-2xl">
+                  <span className="rounded-full w-20 p-1 hover:bg-gray-300 flex justify-center cursor-pointer">
+                    <AiOutlineLike />
+                  </span>
+                  <span className="rounded-full w-20 p-1 hover:bg-gray-300 flex justify-center cursor-pointer">
+                    <FaRegComment />
+                  </span>
+                  <span className="rounded-full w-20 p-1 hover:bg-gray-300 flex justify-center cursor-pointer">
+                    <PiShareFat />
+                  </span>
+                </div>
               </div>
             ))}
           </div>
         )}
       </div>
 
-      <aside className="w-64 max-h-96 pl-2 py-4 overflow-auto ml-auto">
+      <aside className="w-64 max-h-96 pl-2 py-4 overflow-auto fixed top-16 left-[68rem]">
         <h2 className="text-gray-500 font-medium text-lg">
           Your Pages and profiles
         </h2>
@@ -169,7 +186,12 @@ const Home = () => {
 
       {showMedia && (
         <div className="fixed inset-0 flex flex-col items-center justify-center bg-white bg-opacity-35 z-50">
-          <span onClick={handleShowMedia} className="hover:bg-gray-400 rounded-full"><RxCross2 className="text-2xl cursor-pointer"/></span>
+          <span
+            onClick={handleShowMedia}
+            className="hover:bg-gray-400 rounded-full"
+          >
+            <RxCross2 className="text-2xl cursor-pointer" />
+          </span>
           <Post />
         </div>
       )}

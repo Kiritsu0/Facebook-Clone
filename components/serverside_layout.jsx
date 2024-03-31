@@ -39,10 +39,10 @@ const Serverside = () => {
 
   const handleSideMenu = () => {
     let icons = [
-      <CgMenuGridO className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer" />,
-      <RiMessengerFill className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer" />,
-      <IoNotifications className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer" />,
-      <IoPersonSharp className="text-black text-4xl rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer" />,
+      <CgMenuGridO className="text-black rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer" />,
+      <RiMessengerFill className="text-black rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer" />,
+      <IoNotifications className="text-black rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer" />,
+      <IoPersonSharp className="text-black rounded-full bg-gray-200 hover:bg-gray-300 p-2 cursor-pointer" />,
     ];
     let spanStyle =
       "hidden group-hover:block absolute top-14 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white p-2 rounded-md text-sm";
@@ -50,7 +50,7 @@ const Serverside = () => {
     let menu = [];
     for (let i = 0; i < 4; i++) {
       menu.push(
-        <div className="group relative" key={i}>
+        <div className="group relative text-4xl" key={i}>
           {icons[i]}
           <span className={spanStyle}>{tooltipText[i]}</span>
         </div>
