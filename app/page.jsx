@@ -25,8 +25,7 @@ const Home = () => {
   const [showMedia, setShowMedia] = useState(false);
   const [data, setData] = useState([]);
 
-  // localStorage.clear()
-
+  // Get the posts data
   useEffect(() => {
     const storedData = localStorage.getItem("postList")
       ? JSON.parse(localStorage.getItem("postList"))
@@ -36,21 +35,29 @@ const Home = () => {
     }
   }, [showMedia]);
 
-  // useEffect(() => {
-  //   if (data.length > 0) {
-  //     setShowMedia(false)
-  //   }
-  // }, [data])
-
-  // Functions
+// Functions
+  // Nav expansion
   const handleExpand = () => {
     setExpand(!expand);
     setLinkNum(expand ? 9 : 18);
   };
 
+  // Show media page to add post
   const handleShowMedia = () => {
     setShowMedia(!showMedia);
   };
+
+  // Delete posts
+  const handleDeletePost = (index) => {
+    const storedData = localStorage.getItem("postList")
+      ? JSON.parse(localStorage.getItem("postList"))
+      : [];
+    storedData.splice(index, 1);
+    localStorage.setItem("postList", JSON.stringify(storedData)); 
+    setData(storedData);
+  };
+
+
   return (
     <div className="flex">
       <div className="fixed top-16">
@@ -132,13 +139,13 @@ const Home = () => {
                     <IoPersonSharp className="text-black text-4xl rounded-full bg-gray-200 p-2" />
                     User
                   </span>
-                  <RxCross2 className="text-2xl cursor-pointer" />
+                  <RxCross2 className="text-2xl cursor-pointer" onClick={() => handleDeletePost(index)} />
                 </div>
                 <div>
                   <p>{post.description}</p>
                 </div>
                 <div className="h-3/4 scroll-">
-                  <img src={post.url} className="mt-5 max-h-96 w-full" />
+                  <img src={post.url} className="mt-5 max-h-96 w-full" onError={() => localStorage.removeItem("postList")} />
                 </div>
                 <hr className="my-3" />
                 <div className="flex justify-around items-center text-2xl">

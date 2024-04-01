@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { RxCross2 } from "react-icons/rx";
 
 const HandleStory = () => {
   const [data, setData] = useState([]);
@@ -14,8 +15,20 @@ const HandleStory = () => {
     }
   }, []);
 
+// Functions
+  // Hanlde invalid images
   const handleImageError = () => {
-    localStorage.clear();
+    localStorage.removeItem("storyList");
+  };
+
+  // Delete stories
+  const handleDeletePost = (index) => {
+    const storedData = localStorage.getItem("storyList")
+      ? JSON.parse(localStorage.getItem("storyList"))
+      : [];
+    storedData.splice(index, 1);
+    localStorage.setItem("storyList", JSON.stringify(storedData));  
+    setData(storedData);
   };
 
   return (
@@ -28,7 +41,7 @@ const HandleStory = () => {
               return storyData.type === "image" ? (
                 <div
                   key={index}
-                  className="h-52 w-36 rounded-lg cursor-pointer shadow-lg hover:brightness-90 relative overflow-hidden"
+                  className="h-52 w-36 rounded-lg shadow-lg hover:brightness-90 relative overflow-hidden"
                 >
                   <div className="bg-gray-400 h-full flex rounded-lg">
                     <img
@@ -42,6 +55,7 @@ const HandleStory = () => {
                     <span className="text-white absolute top-44 left-2">
                       {storyData.name}
                     </span>
+                    <RxCross2 className="text-2xl cursor-pointer text-gray-400 absolute top-2 left-28" onClick={() => handleDeletePost(index)} />
                   </div>
                 </div>
               ) : (
