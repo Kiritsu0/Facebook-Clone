@@ -35,7 +35,7 @@ const Home = () => {
     }
   }, [showMedia]);
 
-// Functions
+  // Functions
   // Nav expansion
   const handleExpand = () => {
     setExpand(!expand);
@@ -53,10 +53,9 @@ const Home = () => {
       ? JSON.parse(localStorage.getItem("postList"))
       : [];
     storedData.splice(index, 1);
-    localStorage.setItem("postList", JSON.stringify(storedData)); 
+    localStorage.setItem("postList", JSON.stringify(storedData));
     setData(storedData);
   };
-
 
   return (
     <div className="flex">
@@ -139,13 +138,20 @@ const Home = () => {
                     <IoPersonSharp className="text-black text-4xl rounded-full bg-gray-200 p-2" />
                     User
                   </span>
-                  <RxCross2 className="text-2xl cursor-pointer" onClick={() => handleDeletePost(index)} />
+                  <RxCross2
+                    className="text-2xl cursor-pointer"
+                    onClick={() => handleDeletePost(index)}
+                  />
                 </div>
                 <div>
                   <p>{post.description}</p>
                 </div>
                 <div className="h-3/4 scroll-">
-                  <img src={post.url} className="mt-5 max-h-96 w-full" onError={() => localStorage.removeItem("postList")} />
+                  <img
+                    src={post.url}
+                    className="mt-5 max-h-96 w-full"
+                    onError={() => localStorage.removeItem("postList")}
+                  />
                 </div>
                 <hr className="my-3" />
                 <div className="flex justify-around items-center text-2xl">
