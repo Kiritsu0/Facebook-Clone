@@ -81,7 +81,7 @@ const Serverhome = ({ linkNum }) => {
   };
 
   return (
-    <nav className="w-80 max-h-96 pl-2 py-4 overflow-auto scrollbar">
+    <nav className="w-52 md:w-60 lg:w-64  max-h-96 pl-2 py-4 overflow-auto scrollbar">
       {handleNav()}
     </nav>
   );

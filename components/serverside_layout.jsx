@@ -18,7 +18,7 @@ const Serverside = () => {
       <MdGroups />,
       <FaGamepad />,
     ];
-    let linkStyle = "w-20 md:w-24 flex justify-center p-2 hover:bg-gray-200 rounded-md";
+    let linkStyle = "w-16 md:w-20 lg:w-24 flex justify-center p-2 hover:bg-gray-200 rounded-md";
     let href = "";
     let spanStyle =
       "hidden group-hover:block absolute top-14 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white p-2 rounded-md text-sm";

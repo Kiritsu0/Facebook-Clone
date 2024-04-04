@@ -60,7 +60,7 @@ const layout = ({ children }) => {
                     <IoNotifications className="" />
                     Notifications
                   </span>
-                  <span className="hover:bg-gray-100 cursor-pointer p-1 flex items-center gap-2 rounded-t-md">
+                  <span className="hover:bg-gray-100 cursor-pointer p-1 flex items-center gap-2 rounded-b-md">
                     <IoPersonSharp className="" />
                     Account
                   </span>

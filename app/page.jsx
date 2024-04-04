@@ -17,6 +17,7 @@ import { FaRegFaceGrin, FaRegComment } from "react-icons/fa6";
 import { PiUserSwitch, PiShareFat } from "react-icons/pi";
 import { AiOutlineSound, AiOutlineLike } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
+import { CiMenuBurger } from "react-icons/ci";
 
 const Home = () => {
   // Variables
@@ -24,6 +25,7 @@ const Home = () => {
   const [linkNum, setLinkNum] = useState(9);
   const [showMedia, setShowMedia] = useState(false);
   const [data, setData] = useState([]);
+  const [showAside, setShowAside] = useState(false);
 
   // Get the posts data
   useEffect(() => {
@@ -59,7 +61,7 @@ const Home = () => {
 
   return (
     <div className="flex">
-      <div className="fixed top-16">
+      <div className="hidden md:block fixed top-16">
         <Serverhome linkNum={linkNum} />
         <a href="#link">
           <button
@@ -74,6 +76,27 @@ const Home = () => {
             {expand ? "See less" : "See more"}
           </button>
         </a>
+      </div>
+      <div className="md:hidden relative top-16 left-3 block z-20 cursor-pointer fixed">
+          < CiMenuBurger className="text-2xl" onClick={() => setShowAside((previous) => !previous)} />
+          {showAside ? (
+            <div className="absolute top-10 z-20 bg-white rounded-lg p-2">
+              <Serverhome linkNum={linkNum} />
+              <a href="#link">
+                <button
+                  onClick={handleExpand}
+                  className="flex gap-3 items-center font-medium pl-2 py-2 hover:bg-gray-300 rounded-md w-full"
+                >
+                  {expand ? (
+                    <MdExpandLess className="text-3xl bg-gray-400 p-1 rounded-full" />
+                  ) : (
+                    <MdExpandMore className="text-3xl bg-gray-400 p-1 rounded-full" />
+                  )}
+                  {expand ? "See less" : "See more"}
+                </button>
+              </a>
+            </div>
+          ) : null}
       </div>
 
       <div className="flex flex-col items-center w-1/2 mx-auto mt-14">
