@@ -60,8 +60,8 @@ const Home = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="hidden md:block fixed top-16">
+    <div className="flex justify-center lg:justify-between">
+      <div className="hidden md:block fixed lg:sticky top-16 left-2 lg:mt-16">
         <Serverhome linkNum={linkNum} />
         <a href="#link">
           <button
@@ -77,7 +77,7 @@ const Home = () => {
           </button>
         </a>
       </div>
-      <div className="md:hidden relative top-16 left-3 block z-20 cursor-pointer fixed">
+      <div className="md:hidden top-16 left-3 block z-20 cursor-pointer fixed">
           < CiMenuBurger className="text-2xl" onClick={() => setShowAside((previous) => !previous)} />
           {showAside ? (
             <div className="absolute top-10 z-20 bg-white rounded-lg p-2">
@@ -99,10 +99,10 @@ const Home = () => {
           ) : null}
       </div>
 
-      <div className="flex flex-col items-center w-1/2 mx-auto mt-14">
+      <div className="flex flex-col items-center w-1/2 mt-14 md:ml-36 lg:ml-0">
         <div className="ml-10 mt-10 flex items-center gap-3 h-64">
           <Link href="/stories">
-            <div className="bg-white rounded-lg h-60 w-36 hover:brightness-95 shadow-md">
+            <div className="bg-white rounded-lg h-48 md:h-52 lg:h-60 w-28 md:w-32 lg:w-36 hover:brightness-95 shadow-md">
               <div className="bg-gray-400 flex justify-center items-center h-3/4 rounded-t-lg">
                 <IoPersonSharp className="text-7xl" />
               </div>
@@ -111,7 +111,7 @@ const Home = () => {
               </button>
 
               <div>
-                <span className="flex justify-center text-xs font-medium">
+                <span className="relative left-6 md:left-8 lg:left-10 bottom-5 md:bottom-3 text-xs font-medium">
                   Create Story
                 </span>
               </div>
@@ -120,9 +120,9 @@ const Home = () => {
           <HandleStory />
         </div>
 
-        <div className="bg-white rounded-lg mt-8 p-3">
+        <div className="bg-white rounded-lg mt-8 p-3 w-[23rem] md:w-[25rem] lg:w-[28rem]">
           <div className="flex gap-3">
-            <IoPersonSharp className="text-black text-5xl rounded-full bg-gray-200 hover:bg-gray-300 p-2" />
+            <IoPersonSharp className="text-black text-3xl md:text-4xl lg:text-5xl rounded-full bg-gray-200 hover:bg-gray-300 p-2" />
             <input
               type="text"
               className="bg-gray-200 outline-none placeholder-gray-600 rounded-full px-5 flex-1 hover:bg-gray-300"
@@ -130,21 +130,21 @@ const Home = () => {
             />
           </div>
           <hr className="my-2" />
-          <div className="flex gap-3">
-            <span className="px-3 py-1 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer">
-              <IoVideocam className="text-red-700 text-3xl" />
+          <div className="flex justify-center gap-1 lg:gap-3">
+            <span className="px-3 py-1 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer text-sm">
+              <IoVideocam className="text-red-700 text-lg md:text-2xl lg:text-3xl" />
               Live video
             </span>
             <span
               onClick={handleShowMedia}
-              className="px-3 py-1 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer"
+              className="px-3 py-1 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer text-sm"
             >
-              <MdAddPhotoAlternate className="text-green-300 text-3xl" />
+              <MdAddPhotoAlternate className="text-green-300 text-lg md:text-2xl lg:text-3xl" />
               Photo/video
             </span>
-            <span className="px-3 py-1 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer">
-              <FaRegFaceGrin className="text-yellow-300 text-3xl" />
-              Feeling/activity
+            <span className="px-3 py-1 rounded-lg hover:bg-gray-200 flex items-center gap-2 cursor-pointer text-sm">
+              <FaRegFaceGrin className="text-yellow-300 text-lg md:text-2xl lg:text-3xl" />
+              Activity
             </span>
           </div>
         </div>
@@ -194,7 +194,7 @@ const Home = () => {
         )}
       </div>
 
-      <aside className="w-64 max-h-96 pl-2 py-4 overflow-auto fixed top-16 left-[68rem]">
+      <aside className="w-64 max-h-96 pl-2 py-4 overflow-auto hidden lg:block mt-14">
         <h2 className="text-gray-500 font-medium text-lg">
           Your Pages and profiles
         </h2>
