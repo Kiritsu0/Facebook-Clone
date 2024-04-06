@@ -44,7 +44,7 @@ const Post = () => {
   };
 
   return (
-    <div className="w-[35rem] h-[28rem] bg-white rounded-lg shadow-md p-4">
+    <div className="w-[25rem] md:w-[30rem] lg:w-[35rem] h-[28rem] bg-white rounded-lg shadow-md p-4">
       <div className="flex justify-center">
         <h1 className="font-semibold text-2xl">Create Post</h1>
       </div>

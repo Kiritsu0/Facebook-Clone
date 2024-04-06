@@ -15,7 +15,7 @@ import { IoPersonSharp, IoVideocam } from "react-icons/io5";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaRegFaceGrin, FaRegComment } from "react-icons/fa6";
 import { PiUserSwitch, PiShareFat } from "react-icons/pi";
-import { AiOutlineSound, AiOutlineLike } from "react-icons/ai";
+import { AiOutlineSound, AiFillLike } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
 import { CiMenuBurger } from "react-icons/ci";
 
@@ -26,6 +26,7 @@ const Home = () => {
   const [showMedia, setShowMedia] = useState(false);
   const [data, setData] = useState([]);
   const [showAside, setShowAside] = useState(false);
+  const [likeColor, setLike] = useState(false);
 
   // Get the posts data
   useEffect(() => {
@@ -154,7 +155,7 @@ const Home = () => {
             {data.map((post, index) => (
               <div
                 key={index}
-                className="w-[31rem] bg-white rounded-lg p-2 mb-5"
+                className="w-[23rem] md:w-[25rem] lg:w-[31rem] bg-white rounded-lg p-2 mb-5"
               >
                 <div className="flex items-center justify-between mb-8">
                   <span className="flex items-center gap-2">
@@ -178,8 +179,8 @@ const Home = () => {
                 </div>
                 <hr className="my-3" />
                 <div className="flex justify-around items-center text-2xl">
-                  <span className="rounded-full w-20 p-1 hover:bg-gray-300 flex justify-center cursor-pointer">
-                    <AiOutlineLike />
+                  <span onClick={() => setLike((previous) => !previous)} className="rounded-full w-20 p-1 hover:bg-gray-300 flex justify-center cursor-pointer">
+                    <AiFillLike style={{color: likeColor ? "blue" : ""}}/>
                   </span>
                   <span className="rounded-full w-20 p-1 hover:bg-gray-300 flex justify-center cursor-pointer">
                     <FaRegComment />
