@@ -84,12 +84,12 @@ const Clientstory = () => {
   }
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center mt-32 md:mt-0">
       {!selectedFile || textState ? (
-        <div className="flex gap-5 ml-20">
+        <div className="flex gap-5 md:ml-16">
           <label
             htmlFor="fileInput"
-            className="flex justify-center items-center cursor-pointer h-80 w-52 bg-gradient-to-tr from-cyan-300 to-blue-900 rounded-lg hover:brightness-95"
+            className="flex justify-center items-center cursor-pointer h-64 md:h-80 w-40 md:w-52 bg-gradient-to-tr from-cyan-300 to-blue-900 rounded-lg hover:brightness-95"
           >
             <input
               id="fileInput"
@@ -104,7 +104,7 @@ const Clientstory = () => {
           </label>
           <div
             onClick={handleText}
-            className="flex justify-center items-center h-80 w-52 cursor-pointer bg-gradient-to-t from-red-500 to-purple-600 rounded-lg hover:brightness-95"
+            className="flex justify-center items-center h-64 md:h-80 w-40 md:w-52 cursor-pointer bg-gradient-to-t from-red-500 to-purple-600 rounded-lg hover:brightness-95"
           >
             <div className="flex-col">
               <IoTextOutline className="rounded-full bg-white text-4xl p-1 mx-auto" />
@@ -113,9 +113,9 @@ const Clientstory = () => {
           </div>
         </div>
       ) : (
-        <div className="bg-white shadow-md p-3 ml-20 w-[20rem] h-96 md:w-[35rem]">
+        <div className="bg-white shadow-md p-3 ml-5 md:ml-16 w-[20rem] h-96 md:w-[30rem] lg:w-[35rem]">
           <h2 className="font-semibold">Preview</h2>
-          <div className="bg-black flex justify-center items-center h-4/6">
+          <div className="bg-black flex justify-center items-center h-4/6 relative">
             {inputCondition ? (
               <div className="aspect-video h-48 w-40 border-gray-400 overflow-hidden flex items-center">
                 <Image
@@ -126,21 +126,19 @@ const Clientstory = () => {
                 />
               </div>
             ) : (
-              <div className="">
+              <div className="absolute top-8 left-5">
                 <textarea
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                   placeholder="Enter your text here..."
-                  className="p-2 resize-none"
+                  className="p-2 resize-none w-64 md:w-72 lg:w-96 h-20 md:h-32"
                   style={{ backgroundColor: color, fontFamily: font }}
-                  rows={4}
-                  cols={50}
                 />
-                <div className="flex gap-2 mt-4">
+                <div className="flex gap-2 mt-4 flex-wrap">
                   <input onChange={handleColor} value={color} placeholder="Enter color..." className="p-1"/>
-                  <span onClick={() => handleFont("Arial, sans-serif")} className="bg-white rounded-lg p-1 cursor-pointer" style={{fontFamily: "Arial, sans-serif"}}>Arial</span>
-                  <span onClick={() => handleFont("Georgia, serif")} className="bg-white rounded-lg p-1 cursor-pointer" style={{fontFamily: "Georgia, serif"}}>Georgia</span>
-                  <span onClick={() => handleFont("elephant, serif")} className="bg-white rounded-lg p-1 cursor-pointer" style={{fontFamily: "elephant, serif"}}>Elephant</span>
+                  <span onClick={() => handleFont("Arial, sans-serif")} className="bg-white rounded-lg p-1 cursor-pointer hover:bg-slate-300" style={{fontFamily: "Arial, sans-serif"}}>Arial</span>
+                  <span onClick={() => handleFont("Georgia, serif")} className="bg-white rounded-lg p-1 cursor-pointer hover:bg-slate-300" style={{fontFamily: "Georgia, serif"}}>Georgia</span>
+                  <span onClick={() => handleFont("elephant, serif")} className="bg-white rounded-lg p-1 cursor-pointer hover:bg-slate-300" style={{fontFamily: "elephant, serif"}}>Elephant</span>
                 </div>
               </div>
             )}
