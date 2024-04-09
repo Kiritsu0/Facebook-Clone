@@ -17,7 +17,7 @@ import { HiMiniBuildingStorefront } from "react-icons/hi2";
 import { SiFacebookgaming } from "react-icons/si";
 import { RiMessengerFill } from "react-icons/ri";
 
-const Serverhome = ({ linkNum }) => {
+const Nav = ({ linkNum }) => {
   // Functions
   const handleNav = () => {
     const icons = [
@@ -81,10 +81,10 @@ const Serverhome = ({ linkNum }) => {
   };
 
   return (
-    <nav className="w-52 md:w-60 lg:w-64  max-h-96 pl-2 py-4 overflow-auto scrollbar">
+    <nav className="w-52 md:w-60 lg:w-64 max-h-96 pl-2 py-4 overflow-auto scrollbar">
       {handleNav()}
     </nav>
   );
 };
 
-export default Serverhome;
+export default Nav;

@@ -1,5 +1,5 @@
 "use client";
-import Serverhome from "../components/serverside_home";
+import Nav from "../components/navigation";
 import HandleStory from "../components/handle_story";
 import Post from "../components/post";
 import Link from "next/link";
@@ -63,7 +63,7 @@ const Home = () => {
   return (
     <div className="flex justify-center lg:justify-between">
       <div className="hidden md:block fixed lg:sticky top-16 left-2 lg:mt-16">
-        <Serverhome linkNum={linkNum} />
+        <Nav linkNum={linkNum} />
         <a href="#link">
           <button
             onClick={handleExpand}

@@ -9,7 +9,7 @@ import { CgMenuGridO } from "react-icons/cg";
 import { RiMessengerFill } from "react-icons/ri";
 import { IoNotifications, IoPersonSharp } from "react-icons/io5";
 
-const Serverside = () => {
+const HeaderMainMenu = () => {
   const handleMenu = () => {
     let icons = [
       <GoHomeFill />,
@@ -68,4 +68,4 @@ const Serverside = () => {
   );
 };
 
-export default Serverside;
+export default HeaderMainMenu;

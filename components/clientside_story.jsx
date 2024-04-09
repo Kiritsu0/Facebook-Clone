@@ -86,7 +86,7 @@ const Clientstory = () => {
   return (
     <div className="flex justify-center items-center mt-32 md:mt-0">
       {!selectedFile || textState ? (
-        <div className="flex gap-5 md:ml-16">
+        <div className="flex flex-col md:flex-row gap-5 md:ml-16 ml-5">
           <label
             htmlFor="fileInput"
             className="flex justify-center items-center cursor-pointer h-64 md:h-80 w-40 md:w-52 bg-gradient-to-tr from-cyan-300 to-blue-900 rounded-lg hover:brightness-95"
@@ -113,7 +113,7 @@ const Clientstory = () => {
           </div>
         </div>
       ) : (
-        <div className="bg-white shadow-md p-3 ml-5 md:ml-16 w-[20rem] h-96 md:w-[30rem] lg:w-[35rem]">
+        <div className="bg-white shadow-md p-3 md:ml-16 w-[20rem] h-96 md:w-[30rem] lg:w-[35rem]">
           <h2 className="font-semibold">Preview</h2>
           <div className="bg-black flex justify-center items-center h-4/6 relative">
             {inputCondition ? (

@@ -3,7 +3,7 @@
 import "./global.css";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import Serverside from "../components/serverside_layout";
+import HeaderMainMenu from "../components/header_menu";
 
 // Icons
 import { FaFacebook } from 'react-icons/fa';
@@ -39,7 +39,7 @@ const layout = ({ children }) => {
                 />
               </div>
             </div>
-            <Serverside />
+            <HeaderMainMenu />
             <div className="relative lg:hidden">
               <FiMenu
                 className="cursor-pointer text-2xl"
