@@ -1,4 +1,4 @@
-module.exports = {
-    basePath: '/Facebook-Clone',
-    assetPrefix: '/Facebook-Clone/',
-  };
+/** @type {import('next').NextConfig} */
+const nextConfig = {}
+
+module.exports = nextConfig

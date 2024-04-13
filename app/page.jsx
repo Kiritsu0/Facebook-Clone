@@ -121,7 +121,7 @@ const Home = () => {
           <HandleStory />
         </div>
 
-        <div className="bg-white rounded-lg mt-8 p-3 w-[23rem] md:w-[25rem] lg:w-[28rem]">
+        <div className="bg-white rounded-lg mt-8 p-3 w-[21rem] md:w-[25rem] lg:w-[28rem]">
           <div className="flex gap-3">
             <IoPersonSharp className="text-black text-3xl md:text-4xl lg:text-5xl rounded-full bg-gray-200 hover:bg-gray-300 p-2" />
             <input
@@ -155,7 +155,7 @@ const Home = () => {
             {data.map((post, index) => (
               <div
                 key={index}
-                className="w-[23rem] md:w-[25rem] lg:w-[31rem] bg-white rounded-lg p-2 mb-5"
+                className="w-[21rem] md:w-[25rem] lg:w-[31rem] bg-white rounded-lg p-2 mb-5"
               >
                 <div className="flex items-center justify-between mb-8">
                   <span className="flex items-center gap-2">
