@@ -16,11 +16,6 @@ const HandleStory = () => {
   }, []);
 
 // Functions
-  // Hanlde invalid images
-  const handleImageError = () => {
-    localStorage.removeItem("storyList");
-  };
-
   // Delete stories
   const handleDeleteStory = (index) => {
     const storedData = localStorage.getItem("storyList")
@@ -46,7 +41,7 @@ const HandleStory = () => {
                   <div className="bg-gray-400 h-full flex rounded-lg">
                     <img
                       src={storyData.url}
-                      onError={handleImageError}
+                      onError={() => handleDeleteStory(index)}
                       alt="Story"
                       width="200"
                       height="200"

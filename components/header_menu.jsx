@@ -61,7 +61,7 @@ const HeaderMainMenu = () => {
 
   return (
     <>
-      <div className="flex gap-2 sm:w-1/3 w-auto">{handleMenu()}</div>
+      <div className="flex gap-2 overflow-y-hidden overflow-auto md:overflow-hidden lg:overflow-hidden w-1/2 md:w-auto">{handleMenu()}</div>
 
       <div className="flex gap-2">{handleSideMenu()}</div>
     </>

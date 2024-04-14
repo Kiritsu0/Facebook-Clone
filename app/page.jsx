@@ -78,7 +78,7 @@ const Home = () => {
           </button>
         </a>
       </div>
-      <div className="md:hidden top-16 left-3 block z-20 cursor-pointer fixed">
+      <div className="md:hidden top-20 left-3 block z-20 cursor-pointer fixed">
           < CiMenuBurger className="text-2xl" onClick={() => setShowAside((previous) => !previous)} />
           {showAside ? (
             <div className="absolute top-10 z-20 bg-white rounded-lg p-2">
@@ -174,7 +174,7 @@ const Home = () => {
                   <img
                     src={post.url}
                     className="mt-5 max-h-96 w-full"
-                    onError={() => localStorage.removeItem("postList")}
+                    onError={() => handleDeletePost(index)}
                   />
                 </div>
                 <hr className="my-3" />
