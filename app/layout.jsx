@@ -14,7 +14,7 @@ import { RiMessengerFill } from 'react-icons/ri';
 import { IoNotifications, IoPersonSharp } from 'react-icons/io5';
 
 
-const layout = ({ children }) => {
+const Layout = ({ children }) => {
   // Variables
   const metadata = {
     tile: "Facebook",
@@ -28,7 +28,7 @@ const layout = ({ children }) => {
         {pathName === "/stories" ? (
           ""
         ) : (
-          <header className="flex justify-between bg-white items-center px-3 py-2 fixed top-0 z-10 w-full">
+          <header role="header" className="flex justify-between bg-white items-center px-3 py-2 fixed top-0 z-10 w-full">
             <div className="flex items-center gap-2">
               <FaFacebook className="text-blue-600 text-3xl lg:text-4xl cursor-pointer" />
               <div className="bg-gray-200 p-2 rounded-l-full rounded-r-full hidden md:flex">
@@ -75,4 +75,4 @@ const layout = ({ children }) => {
   );
 };
 
-export default layout;
+export default Layout;
