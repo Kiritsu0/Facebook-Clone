@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render, screen } from "@testing-library/react";
-import Layout from "../app/layout.jsx";
+import Layout from "../app/layout";
 import { usePathname } from "next/navigation";
 
 jest.mock("next/navigation", () => ({
@@ -13,7 +13,6 @@ describe("Layout", () => {
     usePathname.mockReturnValue("/");
 
     render(<Layout>Test Content</Layout>);
-    console.log(document.body.innerHTML)
     expect(screen.getByRole("header")).toBeInTheDocument();
   });
 

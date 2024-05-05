@@ -151,7 +151,7 @@ const Home = () => {
         </div>
 
         {data.length > 0 && (
-          <div className="my-8">
+          <div role="posts" className="my-8">
             {data.map((post, index) => (
               <div
                 key={index}
