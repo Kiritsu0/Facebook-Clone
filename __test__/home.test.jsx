@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import Home from "../app/page";
 
 describe('Home', () => {
-    it('should toggle expand and update linkNum', () => {
+    it('should toggle expand', () => {
         render(<Home />);
         const button = screen.getByText("See more");
 

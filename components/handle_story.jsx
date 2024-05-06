@@ -22,7 +22,7 @@ const HandleStory = () => {
       ? JSON.parse(localStorage.getItem("storyList"))
       : [];
     storedData.splice(index, 1);
-    localStorage.setItem("storyList", JSON.stringify(storedData));  
+    localStorage.setItem("storyList", JSON.stringify(storedData));
     setData(storedData);
   };
 

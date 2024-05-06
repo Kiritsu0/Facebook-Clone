@@ -66,6 +66,7 @@ const Nav = ({ linkNum }) => {
     for (let i = 0; i < linkNum; i++) {
       nav.push(
         <Link
+          role="link"
           href=""
           className={linkStyle}
           key={i}
