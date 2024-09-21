@@ -26,8 +26,17 @@ const Home = () => {
   const [showMedia, setShowMedia] = useState(false);
   const [data, setData] = useState([]);
   const [showAside, setShowAside] = useState(false);
-  const [likeColor, setLike] = useState(false);
+  // const [likeColor, setLike] = useState(false);
+  const [likeColors, setLikeColors] = useState(Array(data.length).fill(false));
 
+  // Function to toggle like status for a specific post
+  const handleLikeToggle = (index) => {
+    setLikeColors((prev) => {
+      const newColors = [...prev];
+      newColors[index] = !newColors[index];
+      return newColors;
+    });
+  };
   // Get the posts data
   useEffect(() => {
     const storedData = localStorage.getItem("postList")
@@ -79,25 +88,28 @@ const Home = () => {
         </a>
       </div>
       <div className="md:hidden top-20 left-3 block z-20 cursor-pointer fixed">
-          < CiMenuBurger className="text-2xl" onClick={() => setShowAside((previous) => !previous)} />
-          {showAside ? (
-            <div className="absolute top-10 z-20 bg-white rounded-lg p-2">
-              <Nav linkNum={linkNum} />
-              <a href="#link">
-                <button
-                  onClick={handleExpand}
-                  className="flex gap-3 items-center font-medium pl-2 py-2 hover:bg-gray-300 rounded-md w-full"
-                >
-                  {expand ? (
-                    <MdExpandLess className="text-3xl bg-gray-400 p-1 rounded-full" />
-                  ) : (
-                    <MdExpandMore className="text-3xl bg-gray-400 p-1 rounded-full" />
-                  )}
-                  {expand ? "See less" : "See more"}
-                </button>
-              </a>
-            </div>
-          ) : null}
+        <CiMenuBurger
+          className="text-2xl"
+          onClick={() => setShowAside((previous) => !previous)}
+        />
+        {showAside ? (
+          <div className="absolute top-10 z-20 bg-white rounded-lg p-2">
+            <Nav linkNum={linkNum} />
+            <a href="#link">
+              <button
+                onClick={handleExpand}
+                className="flex gap-3 items-center font-medium pl-2 py-2 hover:bg-gray-300 rounded-md w-full"
+              >
+                {expand ? (
+                  <MdExpandLess className="text-3xl bg-gray-400 p-1 rounded-full" />
+                ) : (
+                  <MdExpandMore className="text-3xl bg-gray-400 p-1 rounded-full" />
+                )}
+                {expand ? "See less" : "See more"}
+              </button>
+            </a>
+          </div>
+        ) : null}
       </div>
 
       <div className="flex flex-col items-center w-1/2 mt-14 md:ml-36 lg:ml-0">
@@ -179,8 +191,11 @@ const Home = () => {
                 </div>
                 <hr className="my-3" />
                 <div className="flex justify-around items-center text-2xl">
-                  <span onClick={() => setLike((previous) => !previous)} className="rounded-full w-20 p-1 hover:bg-gray-300 flex justify-center cursor-pointer">
-                    <AiFillLike style={{color: likeColor ? "blue" : ""}}/>
+                  <span
+                    onClick={() => handleLikeToggle(index)}
+                    className="rounded-full w-20 p-1 hover:bg-gray-300 flex justify-center cursor-pointer"
+                  >
+                    <AiFillLike style={{ color: likeColors[index] ? "blue" : "" }} />
                   </span>
                   <span className="rounded-full w-20 p-1 hover:bg-gray-300 flex justify-center cursor-pointer">
                     <FaRegComment />

@@ -1,6 +1,7 @@
 "use client";
 
 import "./global.css";
+import Head from 'next/head';
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import HeaderMainMenu from "../components/header_menu";
@@ -13,17 +14,17 @@ import { CgMenuGridO } from 'react-icons/cg';
 import { RiMessengerFill } from 'react-icons/ri';
 import { IoNotifications, IoPersonSharp } from 'react-icons/io5';
 
-
 const Layout = ({ children }) => {
   // Variables
-  const metadata = {
-    tile: "Facebook",
-  };
   const pathName = usePathname();
   const [showMenu, setShowMenu] = useState(false);
 
   return (
     <html lang="en">
+      <Head>
+        <title>Facebook Clone</title>
+        <meta name="description" content="Your project description here." />
+      </Head>
       <body className="bg-gray-200">
         {pathName === "/stories" ? (
           ""
